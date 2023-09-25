@@ -1,20 +1,13 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
+import { RouterView } from 'vue-router';
+import TheHeader from '@/components/TheHeader.vue';
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/main-banner.jpg" width="125" height="125" />
-
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <v-app>
+    <TheHeader></TheHeader>
+    <v-main>
+      <RouterView></RouterView>
+    </v-main>
+  </v-app>
 </template>
-
-<style scoped></style>

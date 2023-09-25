@@ -29,6 +29,11 @@ const router = createRouter({
       component: DojoView
     },
     {
+      path: '/dojo',
+      name: 'dojo2',
+      component: DojoView
+    },
+    {
       path: '/dojo/entrainements',
       name: 'entrainements',
       component: TrainingView
@@ -109,7 +114,7 @@ const router = createRouter({
       component: ShiatsuView
     },
     {
-      path: '/frmcontact',
+      path: '/contact',
       name: 'contact',
       component: ContactView
     },
