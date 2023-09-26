@@ -1,1 +1,1 @@
-<template>inscription</template>
+<template>inscrivez vous</template>

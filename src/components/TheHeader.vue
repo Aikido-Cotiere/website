@@ -2,7 +2,7 @@
 import TheMenu from '@/components/TheMenu.vue';
 </script>
 <template>
-  <v-app-bar scroll-behavior="hide" height="150">
+  <v-app-bar scroll-behavior="elevate" height="150" :border="true">
     <template v-slot:image>
       <v-img cover src="/src/assets/main-banner.jpg"></v-img>
     </template>

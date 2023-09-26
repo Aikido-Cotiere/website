@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import DojoView from '../views/DojoView.vue'
 import TrainingView from '../views/TrainingView.vue'
 import SchedulesView from '../views/SchedulesView.vue'
+import DiscoverView from '../views/DiscoverView.vue'
 import Prices from '../views/PricesView.vue'
 import FormalityView from '../views/FormalityView.vue'
 import LocalityView from '../views/LocalityView.vue'
@@ -42,6 +43,11 @@ const router = createRouter({
       path: '/dojo/horaires',
       name: 'horaires',
       component: SchedulesView
+    },
+    {
+      path: '/dojo/horaires/decouverte',
+      name: 'decouverte',
+      component: DiscoverView
     },
     {
       path: '/dojo/tarifs',

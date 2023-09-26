@@ -1,5 +1,5 @@
 <template>
-  <v-card class="motherfucker">
+  <v-card variant="flat" class="bg-transparent">
     <v-card-title>
       <div class="h1">AIKIDO TRADITIONNEL DE LA COTIERE</div>
     </v-card-title>
