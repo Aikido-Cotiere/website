@@ -42,6 +42,9 @@ jobs:
       #- run: npm test
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
+        with:
+          # Upload dist repository
+          path: './dist'
 
   # Deployment job
   deploy:
