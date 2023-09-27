@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import StandardPage from '@/components/StandardPage.vue';
-import Left from '/Mt_aikido.jpg';
-import Right from '/GMB.jpg';
+import Left from '/img/Mt_aikido.jpg';
+import Right from '/img/GMB.jpg';
 </script>
 <template>
   <StandardPage title="AIKIDO TRADITIONNEL DE LA COTIERE">

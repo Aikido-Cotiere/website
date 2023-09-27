@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import StandardPage from '@/components/StandardPage.vue';
 import StandardContent from '@/components/StandardContent.vue';
-import Hakama from '/hakama.jpg';
+import Hakama from '/img/hakama.jpg';
 </script>
 <template>
   <standard-page title="Comment plier le hakama">

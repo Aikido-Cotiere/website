@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import StandardPage from '@/components/StandardPage.vue';
 import StandardContent from '@/components/StandardContent.vue';
-import RenseignementPdf from '/Renseignements_202008.pdf';
-import QuestionnaireSante from '/QS_ATC.pdf';
+import RenseignementPdf from '/files/Renseignements_202008.pdf';
+import QuestionnaireSante from '/files/QS_ATC.pdf';
 </script>
 <template>
   <standard-page title="Nouveau pratiquant (n'ayant jamais été inscrit à ATC)">

@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import ConductCodeRule from '@/components/ConductCodeRule.vue';
 import StandardPage from '@/components/StandardPage.vue';
 import StandardContent from '@/components/StandardContent.vue';
-import Dojo from '/Dojo.jpg';
+import Dojo from '/img/Dojo.jpg';
 const rules = ref([
   {
     title: 'Respectez vos instruments de travail',

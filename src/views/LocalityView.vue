@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import StandardPage from '@/components/StandardPage.vue';
 import StandardContent from '@/components/StandardContent.vue';
-import ClubImage from '/Image_logo_ATC.gif';
-import Salle from '/DSCN2025.jpeg';
-import Batiment from '/DSCN2026.jpeg';
+import ClubImage from '/img/Image_logo_ATC.gif';
+import Salle from '/img/DSCN2025.jpeg';
+import Batiment from '/img/DSCN2026.jpeg';
 </script>
 <template>
   <standard-page title="AIKIDO TRADITIONNEL DE LA COTIERE">

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
 import TheHeader from '@/components/TheHeader.vue';
-import parralax from '/parallax.jpg';
+import parralax from '/img/parallax.jpg';
 </script>
 
 <template>

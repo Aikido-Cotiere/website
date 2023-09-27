@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TheMenu from '@/components/TheMenu.vue';
-import Banner from '/main-banner.jpg';
+import Banner from '/img/main-banner.jpg';
 </script>
 <template>
   <v-app-bar scroll-behavior="elevate" :image="Banner" height="150" :border="true">

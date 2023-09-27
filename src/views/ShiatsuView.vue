@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import StandardPage from '@/components/StandardPage.vue';
 import StandardContent from '@/components/StandardContent.vue';
-import Shiatsu from '/Shiatsu.jpg';
+import Shiatsu from '/img/Shiatsu.jpg';
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import StandardPage from '@/components/StandardPage.vue';
 import StandardContent from '@/components/StandardContent.vue';
-import bokken from '/bokkenr.jpg';
+import bokken from '/img/bokkenr.jpg';
 </script>
 <template>
   <standard-page title=" L'Aïkido">

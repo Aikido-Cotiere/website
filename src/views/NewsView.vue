@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import NewsEntry from '@/components/NewsEntry.vue';
-import Telethon from '/Telethon2017.jpg';
-import StateBourg from '/StageBourg2017.jpg';
-import Nuit from '/Nuit1.jpg';
+import Telethon from '/img/Telethon2017.jpg';
+import StateBourg from '/img/StageBourg2017.jpg';
+import Nuit from '/img/Nuit1.jpg';
 </script>
 <template>
   <news-entry title="Reprise des entrainements saison 2023/2024" :date="new Date(2023, 7, 22)">
