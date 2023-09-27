@@ -1,12 +1,12 @@
 <script setup lang="ts"></script>
 <template>
-  <v-tabs align-tabs="center" grow bg-color="grey-lighten-5">
+  <v-tabs align-tabs="center" grow bg-color="grey-lighten-5" show-arrows>
     <v-tab to="/" exact>Accueil</v-tab>
     <v-tab to="/dojo">
-      <v-menu open-on-hover :open-delay="0">
+      <v-menu open-on-hover open-on-click :open-delay="0">
         <template v-slot:activator="{ props }">
           <div v-bind="props">
-            Le Dojo
+            <span>Le Dojo</span>
             <v-icon icon="mdi-menu-down"></v-icon>
           </div>
         </template>
@@ -61,10 +61,10 @@
                   <v-list-item to="/aikido/equipement/le-hakama">
                     <v-list-item-title>Le hakama</v-list-item-title>
                   </v-list-item>
-                  <v-list-item to="/aikido/equipement/porterhakama">
+                  <v-list-item to="/aikido/equipement/le-hakama/porterhakama">
                     <v-list-item-title>Comment mettre le hakama</v-list-item-title>
                   </v-list-item>
-                  <v-list-item to="/aikido/equipement/comment-plier-son-hakama">
+                  <v-list-item to="/aikido/equipement/le-hakama/comment-plier-son-hakama">
                     <v-list-item-title>Comment plier le hakama</v-list-item-title>
                   </v-list-item>
                 </v-list>

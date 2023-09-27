@@ -12,7 +12,7 @@ import TheHeader from '@/components/TheHeader.vue';
       </v-list>
     </v-navigation-drawer> -->
     <v-main>
-      <v-parallax src="/src/assets/parallax.jpg">
+      <v-parallax src="/parallax.jpg">
         <RouterView></RouterView>
       </v-parallax>
     </v-main>
