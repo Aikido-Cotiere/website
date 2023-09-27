@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import StandardPage from '@/components/StandardPage.vue';
 import StandardContent from '@/components/StandardContent.vue';
+import bokken from '/bokkenr.jpg';
 </script>
 <template>
   <standard-page title=" L'Aïkido">
@@ -19,7 +20,7 @@ import StandardContent from '@/components/StandardContent.vue';
       <p>Pas de course à la médaille dans cette discipline où chacun travaille à son rythme, selon ses capacités et sa volonté.</p>
       <p>Si l’on veut traduire le terme Aïkido, c’est « la voie de l’Harmonisation de l’énergie ».</p>
       <p>L'Aïkido ne fait pas intervenir la force physique des pratiquants. Tous, hommes et femmes, peuvent le pratiquer ensemble « de 7 à 77 ans » ... et plus longtemps encore.</p>
-      <v-img src="/bokkenr.jpg" width="640" height="400"></v-img>
+      <v-img :src="bokken" width="640" height="400"></v-img>
     </standard-content>
 
     <standard-content title="Quelques vidéos ...">

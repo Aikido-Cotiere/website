@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import ConductCodeRule from '@/components/ConductCodeRule.vue';
 import StandardPage from '@/components/StandardPage.vue';
 import StandardContent from '@/components/StandardContent.vue';
+import Dojo from '/Dojo.jpg';
 const rules = ref([
   {
     title: 'Respectez vos instruments de travail',
@@ -56,7 +57,7 @@ const rules = ref([
 <template>
   <StandardPage title="Les règles de conduite dans un dojo">
     <StandardContent title="La disposition du dojo">
-      <v-img src="/Dojo.jpg" width="600"></v-img>
+      <v-img :src="Dojo" width="600"></v-img>
       <p>
         Dans le cas où il n'y a aucune marque spécialisée, le kamiza se trouve à l'opposé de l'entrée. Le fond de la pièce ou de la maison est d'un rang plus élevé que l'entrée. Le côté gauche, vu du
         kamiza, est le côté le plus honorifique.

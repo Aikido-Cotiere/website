@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import NewsEntry from '@/components/NewsEntry.vue';
+import Telethon from '/Telethon2017.jpg';
+import StateBourg from '/StageBourg2017.jpg';
+import Nuit from '/Nuit1.jpg';
 </script>
 <template>
   <news-entry title="Reprise des entrainements saison 2023/2024" :date="new Date(2023, 7, 22)">
@@ -33,12 +36,12 @@ import NewsEntry from '@/components/NewsEntry.vue';
       Pour cette nouvelle édition du Téléthon organisée par le Comité des Fêtes de Dagneux, le dojo était représenté par Ahmed qui a préparé une délicieuse soupe qu'il a servie avec l'aide d'Alain.
       Félicitations et remerciements à nos deux pratiquants pour leur participation à cet événément important.
     </p>
-    <v-img src="/Telethon2017.jpg" width="343" height="450"></v-img>
+    <v-img :src="Telethon" width="343" height="450"></v-img>
   </news-entry>
 
   <news-entry title="Stage Alain Peyrache à Bourg-en-Bresse (2017)" :date="new Date(2017, 10, 27)">
     <p>Notre senseï au stage dirigé par Alain PEYRACHE à Bourg-en-Bresse les 11 et 12/11/2017.</p>
-    <v-img src="/StageBourg2017.jpg" width="362" height="287"></v-img>
+    <v-img :src="StateBourg" width="362" height="287"></v-img>
   </news-entry>
 
   <news-entry title="Nuit des Arts Martiaux 2010" :date="new Date(2011, 9, 5)">
@@ -46,6 +49,6 @@ import NewsEntry from '@/components/NewsEntry.vue';
       Lors de la seconde édition de "La nuit des arts martiaux et des sports de combat" de Fontaines-sur-Saône le samedi 3 avril 2010, une démonstration d'aïkido a été effectuée par Guy-Michel et
       Philippe. Une <a href="http://www.youtube.com/watch?v=6-wA_w_en_8">vidéo</a> a été mise en ligne par le <a href="http://www.snc-aikido.com/">SNC Caluire</a>.
     </p>
-    <v-img src="/Nuit1.jpg" width="287" height="262"></v-img>
+    <v-img :src="Nuit" width="287" height="262"></v-img>
   </news-entry>
 </template>

@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import StandardPage from '@/components/StandardPage.vue';
 import StandardContent from '@/components/StandardContent.vue';
+import Hakama from '/hakama.jpg';
 </script>
 <template>
   <standard-page title="Comment plier le hakama">
     <standard-content>
       <p>Apprenez à plier correctement votre hakama</p>
-      <v-img src="/hakama.jpg" height="460" width="652"></v-img>
+      <v-img :src="Hakama" height="460" width="652"></v-img>
       <iframe
         width="560"
         height="315"

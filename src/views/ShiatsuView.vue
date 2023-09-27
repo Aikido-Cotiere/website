@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import StandardPage from '@/components/StandardPage.vue';
 import StandardContent from '@/components/StandardContent.vue';
+import Shiatsu from '/Shiatsu.jpg';
 </script>
 
 <template>
   <standard-page>
     <standard-content title="Shiatsu">
-      <v-img src="/Shiatsu.jpg" width="25%"></v-img>
+      <v-img :src="Shiatsu" width="25%"></v-img>
       <p>
         Pratiqué en Extrême-Orient depuis des millénaires, c'est une discipline énergétique qui consiste à effectuer des étirements et des pressions sur l'ensemble du corps. Le Shiatsu procure
         détente, relaxation et bien-être.

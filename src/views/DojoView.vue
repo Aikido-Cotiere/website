@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import StandardPage from '@/components/StandardPage.vue';
+import Left from '/Mt_aikido.jpg';
+import Right from '/GMB.jpg';
 </script>
 <template>
   <StandardPage title="AIKIDO TRADITIONNEL DE LA COTIERE">
     <v-row>
       <v-col cols="4">
-        <v-img src="/Mt_aikido.jpg"></v-img>
+        <v-img :src="Left"></v-img>
       </v-col>
       <v-col cols="4">
         <p>
@@ -36,7 +38,7 @@ import StandardPage from '@/components/StandardPage.vue';
         </p>
       </v-col>
       <v-col cols="4">
-        <v-img src="/GMB.jpg"></v-img>
+        <v-img :src="Right"></v-img>
       </v-col>
     </v-row>
   </StandardPage>

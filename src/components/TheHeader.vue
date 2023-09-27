@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import TheMenu from '@/components/TheMenu.vue';
+import Banner from '/main-banner.jpg';
 </script>
 <template>
-  <v-app-bar scroll-behavior="elevate" image="/main-banner.jpg" height="150" :border="true">
+  <v-app-bar scroll-behavior="elevate" :image="Banner" height="150" :border="true">
     <template #title>
       <span class="d-flex justify-center text-white">AÏKIDO TRADITIONNEL DE LA CÔTIERE</span>
     </template>

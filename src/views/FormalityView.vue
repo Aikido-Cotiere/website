@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import StandardPage from '@/components/StandardPage.vue';
 import StandardContent from '@/components/StandardContent.vue';
+import RenseignementPdf from '/Renseignements_202008.pdf';
+import QuestionnaireSante from '/QS_ATC.pdf';
 </script>
 <template>
   <standard-page title="Nouveau pratiquant (n'ayant jamais été inscrit à ATC)">
@@ -38,7 +40,7 @@ import StandardContent from '@/components/StandardContent.vue';
       </standard-content>
 
       <p class="text-blue"></p>
-      <v-btn size="small" variant="outlined" href="/Renseignements_202008.pdf" download>Imprimer cette fiche de renseignements</v-btn>
+      <v-btn size="small" variant="outlined" :href="RenseignementPdf" download>Imprimer cette fiche de renseignements</v-btn>
     </standard-content>
   </standard-page>
 
@@ -49,8 +51,8 @@ import StandardContent from '@/components/StandardContent.vue';
         <v-list density="compact" class="bg-transparent">
           <v-list-item prepend-icon="mdi-circle-small"
             >Le certificat médical, précisant « aptitude à l'aïkido » est valable 3 ans s'il ne comporte pas de mention limitative de durée ; par exemple, un certificat médical établi en 2019 devra
-            être renouvelé en 2022. S'il est toujours valide, téléchargez et renseignez le <v-btn variant="outlined" size="small" href="/QS_ATC.pdf" download>Questionnaire de santé</v-btn>, à dater et
-            signer (par un représentant légal pour les pratiquants mineurs).
+            être renouvelé en 2022. S'il est toujours valide, téléchargez et renseignez le <v-btn variant="outlined" size="small" :href="QuestionnaireSante" download>Questionnaire de santé</v-btn>, à
+            dater et signer (par un représentant légal pour les pratiquants mineurs).
           </v-list-item>
           <v-list-item prepend-icon="mdi-circle-small">Règlement de la cotisation</v-list-item>
           <v-list-item prepend-icon="mdi-circle-small">Passeport EPA</v-list-item>

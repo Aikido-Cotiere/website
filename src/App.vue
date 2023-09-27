@@ -1,18 +1,14 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
 import TheHeader from '@/components/TheHeader.vue';
+import parralax from '/parallax.jpg';
 </script>
 
 <template>
   <v-app>
     <TheHeader></TheHeader>
-    <!-- <v-navigation-drawer>
-      <v-list>
-        <v-list-item title="Drawer left"></v-list-item>
-      </v-list>
-    </v-navigation-drawer> -->
     <v-main>
-      <v-parallax src="/parallax.jpg">
+      <v-parallax :src="parralax">
         <RouterView></RouterView>
       </v-parallax>
     </v-main>
