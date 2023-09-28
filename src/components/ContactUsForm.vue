@@ -34,7 +34,7 @@ const message = ref('');
 </script>
 
 <template>
-  <v-form v-model="valid" @submit.prevent>
+  <v-form v-model="valid" @submit.prevent class=" bg-white">
     <v-container>
       <v-row>
         <v-col>

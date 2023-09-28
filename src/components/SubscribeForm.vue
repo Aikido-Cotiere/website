@@ -105,7 +105,7 @@ const image = ref(false);
           <v-text-field v-model="saison" readonly :rules="nameRules" :counter="10" label="saison" variant="outlined" required class="bg-white"></v-text-field>
         </v-col>
       </v-row>
-      <v-card class="my-2" variant="outlined">
+      <v-card class="my-2 bg-white" variant="outlined">
         <v-card-title>Informations Personnelles</v-card-title>
         <v-card-text>
           <v-row align="center">
@@ -128,14 +128,7 @@ const image = ref(false);
               <v-text-field v-model="phoneNumber" label="Numéro de téléphone*" :rules="phoneNumberRules" required variant="outlined" class="bg-white"></v-text-field>
             </v-col>
             <v-col cols="6" md="3">
-              <v-text-field
-                v-model="phoneNumberUrgency"
-                label="Numéro de téléphone (personne à prévenir en cas d'urgence)*"
-                :rules="phoneNumberRules"
-                required
-                variant="outlined"
-                class="bg-white"
-              ></v-text-field>
+              <v-text-field v-model="phoneNumberUrgency" label="Numéro de téléphone (personne à prévenir en cas d'urgence)*" :rules="phoneNumberRules" required variant="outlined" class="bg-white"></v-text-field>
             </v-col>
             <v-col cols="12">
               <v-text-field v-model="address" label="Adresse*" :rules="addressRules" required variant="outlined" class="bg-white"></v-text-field>
@@ -152,14 +145,7 @@ const image = ref(false);
               <v-checkbox v-model="isUnderage" label="Mineur ?" class="bg-white"></v-checkbox>
             </v-col>
             <v-col v-if="isUnderage" cols="12" md="4">
-              <v-text-field
-                v-model="firstLegalResponsible"
-                :rules="firstLegalResponsibleRules"
-                label="Responsable légal pour les mineurs (père, mère ou tuteur)*"
-                variant="outlined"
-                required
-                class="bg-white"
-              ></v-text-field>
+              <v-text-field v-model="firstLegalResponsible" :rules="firstLegalResponsibleRules" label="Responsable légal pour les mineurs (père, mère ou tuteur)*" variant="outlined" required class="bg-white"></v-text-field>
             </v-col>
             <v-col v-if="isUnderage" cols="12" md="4">
               <v-text-field v-model="secondLegalResponsible" label="Autre responsable légal pour les mineurs (2ème parent)" variant="outlined" class="bg-white"></v-text-field>
@@ -170,18 +156,12 @@ const image = ref(false);
           </v-row>
         </v-card-text>
       </v-card>
-      <v-card class="my-2" variant="outlined">
+      <v-card class="my-2 bg-white" variant="outlined">
         <v-card-title>Informations Contractuelles</v-card-title>
         <v-card-text>
           <v-row>
             <v-col>
-              <v-text-field
-                v-model="familly"
-                label="Adhésion famille"
-                hint="Si plusieurs adhérents d'un même foyer fiscal, indiquez le nom du pratiquant le plus âgé sous la forme NOM prénom ; en cas de prénom composé,  séparer les prénoms par un - (par exemple : MARTIN Jean-Pierre). "
-                variant="outlined"
-                class="bg-white"
-              ></v-text-field>
+              <v-text-field v-model="familly" label="Adhésion famille" hint="Si plusieurs adhérents d'un même foyer fiscal, indiquez le nom du pratiquant le plus âgé sous la forme NOM prénom ; en cas de prénom composé,  séparer les prénoms par un - (par exemple : MARTIN Jean-Pierre). " variant="outlined" class="bg-white"></v-text-field>
             </v-col>
           </v-row>
           <v-row>
@@ -194,7 +174,7 @@ const image = ref(false);
           </v-row>
         </v-card-text>
       </v-card>
-      <v-card class="my-2" variant="outlined">
+      <v-card class="my-2 bg-white" variant="outlined">
         <v-card-title>Informations médicales</v-card-title>
         <v-card-text>
           <v-row>
