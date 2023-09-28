@@ -20,6 +20,7 @@ const ShiatsuView = () => import('../views/ShiatsuView.vue')
 const ContactView = () => import('../views/ContactView.vue')
 const SubscribeView = () => import('../views/SubscribeView.vue')
 const ResubscribeView = () => import('../views/ResubscribeView.vue')
+const HomeView = () => import('../views/HomeView.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,7 +28,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'dojo',
-      component: DojoView
+      component: HomeView
     },
     {
       path: '/dojo',

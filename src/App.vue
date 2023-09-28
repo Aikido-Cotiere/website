@@ -9,7 +9,9 @@ import parralax from '/img/parallax.jpg';
     <TheHeader></TheHeader>
     <v-main>
       <v-parallax :src="parralax">
-        <RouterView></RouterView>
+        <Suspense>
+          <RouterView></RouterView>
+        </Suspense>
       </v-parallax>
     </v-main>
   </v-app>
