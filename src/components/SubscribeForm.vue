@@ -192,7 +192,9 @@ const image = ref(false);
         <v-col>
           <v-select v-model="knowMean" :items="knowMeans" label="Comment avez-vous connu le dojo ?*" variant="outlined" required class="bg-white"> </v-select>
         </v-col>
-        <v-col cols="12">
+      </v-row>
+      <v-row class="mt-4">
+        <v-col cols="12" md="auto">
           <v-checkbox v-model="image" label="Droit d'utilisation de l'image" variant="outlined" class="bg-white"></v-checkbox>
         </v-col>
       </v-row>
