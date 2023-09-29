@@ -27,7 +27,7 @@ const content_left = computed(() => renderRichText(props.blok.content_left));
         </v-col>
       </v-row>
       <v-row>
-        <v-col md="6" lg="4" class="d-none d-md-flex">
+        <v-col cols="12" md="6" lg="4">
           <div class="text-body-1" v-html="content_left"></div>
           <v-img v-if="props.blok.image_left" :src="props.blok.image_left.filename"></v-img>
           <div v-editable="blok" class="px-6">
@@ -41,7 +41,7 @@ const content_left = computed(() => renderRichText(props.blok.content_left));
             <StoryblokComponent v-for="inblok in blok.children_middle" :blok="inblok" :key="inblok._uid" />
           </div>
         </v-col>
-        <v-col md="6" lg="4" class="d-none d-md-flex">
+        <v-col cols="12" md="6" lg="4">
           <div class="text-body-1" v-html="content_right"></div>
           <v-img v-if="props.blok.image_right" :src="props.blok.image_right.filename"></v-img>
           <div v-editable="blok" class="px-6">
