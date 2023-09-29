@@ -25,6 +25,9 @@ import ListItemComponent from '@/components/storyblok/Components/ListItemCompone
 import ListSubHeaderComponent from '@/components/storyblok/Components/ListSubHeaderComponent.vue'
 import ImageComponent from '@/components/storyblok/Components/ImageComponent.vue'
 import HorizontalLineComponent from '@/components/storyblok/Components/HorizontalLineComponent.vue'
+import YoutubeComponent from '@/components/storyblok/Components/YoutubeComponent.vue'
+import ConductCodeRuleComponent from '@/components/storyblok/Components/ConductCodeRuleComponent.vue'
+import TableComponent from '@/components/storyblok/Components/TableComponent.vue'
 
 const vuetify = createVuetify({
     components,
@@ -63,6 +66,9 @@ app.component('list_subheader_component', ListSubHeaderComponent)
 app.component('vertical_spacer_component', VerticalSpacer)
 app.component('image_component', ImageComponent)
 app.component('horizontal_line_component', HorizontalLineComponent)
+app.component('youtube_component', YoutubeComponent)
+app.component('conduct_code_rule_component', ConductCodeRuleComponent)
+app.component('table_component', TableComponent)
 /******************/
 
 app.mount('#app')
