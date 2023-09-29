@@ -12,8 +12,11 @@ const content = computed(() => renderRichText(props.blok.content));
   <v-card :variant="props.blok.border ? 'outlined' : 'flat'" class="bg-transparent">
     <v-card-title :class="{ 'text-subtitle-1 allowWrap': props.blok.isSubComponent }">{{ props.blok.title }}</v-card-title>
     <v-card-text>
-      <div :class="{ 'text-body-2': props.blok.isSubComponent }" v-html="content"></div>
-      <v-img v-if="props.blok.image" :src="props.blok.image.filename"></v-img>
+      <div :class="{ 'd-flex': props.blok.image_aside }">
+        <div :class="{ 'text-body-2': props.blok.isSubComponent }" v-html="content"></div>
+        <v-img v-if="props.blok.image" :src="props.blok.image.filename" :width="props.blok.image_width" :height="props.blok.image_height"></v-img>
+      </div>
+
       <div v-editable="blok" class="px-6">
         <StoryblokComponent v-for="inblok in props.blok.body" :blok="inblok" :key="inblok._uid" />
       </div>

@@ -23,6 +23,8 @@ import VerticalSpacer from '@/components/storyblok/Components/VerticalSpacer.vue
 import ListComponent from '@/components/storyblok/Components/ListComponent.vue'
 import ListItemComponent from '@/components/storyblok/Components/ListItemComponent.vue'
 import ListSubHeaderComponent from '@/components/storyblok/Components/ListSubHeaderComponent.vue'
+import ImageComponent from '@/components/storyblok/Components/ImageComponent.vue'
+import HorizontalLineComponent from '@/components/storyblok/Components/HorizontalLineComponent.vue'
 
 const vuetify = createVuetify({
     components,
@@ -58,7 +60,9 @@ app.component('block_component', BlockComponent)
 app.component('list_component', ListComponent)
 app.component('list_item_component', ListItemComponent)
 app.component('list_subheader_component', ListSubHeaderComponent)
-app.component('vertical-spacer-component', VerticalSpacer)
+app.component('vertical_spacer_component', VerticalSpacer)
+app.component('image_component', ImageComponent)
+app.component('horizontal_line_component', HorizontalLineComponent)
 /******************/
 
 app.mount('#app')
