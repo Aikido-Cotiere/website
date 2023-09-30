@@ -1,1 +1,0 @@
-<template>se reinscrire</template>

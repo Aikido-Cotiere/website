@@ -1,25 +1,26 @@
 <script setup lang="ts">
-import type { Link } from '../App.vue';
-
-const props = defineProps<{
-  link: Link;
-}>();
+const props = withDefaults(
+  defineProps<{
+    link: any;
+    level?: number;
+  }>(),
+  {
+    level: 1,
+  }
+);
 </script>
 <template>
-  <v-list-item>
-    <v-list-item-title>
-      <v-btn class="wrap" variant="text" :to="props.link.link" :href="props.link.href">{{ props.link.name }}</v-btn>
-    </v-list-item-title>
-    <template v-if="props.link.children">
-      <v-list select-strategy="independent">
-        <TheListLink v-for="(child, childIndex) in props.link.children" :key="childIndex" :link="child"> </TheListLink>
-      </v-list>
-    </template>
+  <v-list-item class="bright" :to="props.link.link.linktype == 'story' ? '/' + props.link.link.cached_url : undefined" :href="props.link.link.linktype == 'url' ? props.link.link.url : undefined">
+    <v-list-item-title>{{ props.link.name }}</v-list-item-title>
   </v-list-item>
+  <v-list :class="'ml-' + level" v-if="props.link.children && props.link.children.length > 0" :lines="false" nav>
+    <TheListLink v-for="(child, childIndex) in props.link.children" :key="childIndex" :link="child" :level="level + 1"> </TheListLink>
+  </v-list>
 </template>
 
 <style scoped>
-.wrap {
-  white-space: inherit;
+.bright {
+  backdrop-filter: brightness(150%);
+  text-shadow: 1px 1px #ffffff;
 }
 </style>

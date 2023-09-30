@@ -28,6 +28,9 @@ import HorizontalLineComponent from '@/components/storyblok/Components/Horizonta
 import YoutubeComponent from '@/components/storyblok/Components/YoutubeComponent.vue'
 import ConductCodeRuleComponent from '@/components/storyblok/Components/ConductCodeRuleComponent.vue'
 import TableComponent from '@/components/storyblok/Components/TableComponent.vue'
+import ContactUsFormComponent from '@/components/storyblok/Components/ContactUsFormComponent.vue'
+import SubscribeFormComponent from '@/components/storyblok/Components/SubscribeFormComponent.vue'
+import CarteComponent from '@/components/storyblok/Components/CarteComponent.vue'
 
 const vuetify = createVuetify({
     components,
@@ -69,6 +72,9 @@ app.component('horizontal_line_component', HorizontalLineComponent)
 app.component('youtube_component', YoutubeComponent)
 app.component('conduct_code_rule_component', ConductCodeRuleComponent)
 app.component('table_component', TableComponent)
+app.component('contact_us_component', ContactUsFormComponent)
+app.component('subscribe_form_component', SubscribeFormComponent)
+app.component('carte_component', CarteComponent)
 /******************/
 
 app.mount('#app')
