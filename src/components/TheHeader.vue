@@ -21,7 +21,7 @@ const emits = defineEmits<{
     </template>
     <template #extension>
       <Suspense v-if="!mobile">
-        <the-web-menu :links="props.links"></the-web-menu>
+        <the-web-menu></the-web-menu>
       </Suspense>
       <template v-else>
         <v-app-bar-nav-icon variant="text" @click.stop="emits('update:modelValue', !props.modelValue)"></v-app-bar-nav-icon>
