@@ -22,7 +22,6 @@ const model = computed<boolean>({
 </script>
 
 <template>
-  <span>{{ model }}</span>
   <v-navigation-drawer v-model="model" fixed width="100%">
     <v-app-bar-nav-icon variant="text" @click.stop="emits('update:modelValue', !props.modelValue)"></v-app-bar-nav-icon>
     <span>AÏKIDO TRADITIONNEL DE LA CÔTIERE</span>
