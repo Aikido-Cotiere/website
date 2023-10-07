@@ -15,7 +15,7 @@
     "lint-fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore --fix"
   },
   "dependencies": {
-    "@storyblok/vue": "^7.3.0",
+    "@storyblok/vue": "7.3.1",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4",

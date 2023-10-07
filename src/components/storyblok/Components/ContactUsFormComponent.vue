@@ -34,20 +34,16 @@ const message = ref('');
 </script>
 
 <template>
-  <v-form v-model="valid" @submit.prevent class=" bg-white">
+  <v-form v-model="valid" @submit.prevent class="bg-white">
     <v-container>
       <v-row>
-        <v-col>
+        <v-col cols="12" sm="3">
           <v-text-field v-model="firstname" :rules="nameRules" :counter="10" label="Prénom*" variant="outlined" required></v-text-field>
         </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
+        <v-col cols="12" sm="3">
           <v-text-field v-model="lastname" :rules="nameRules" :counter="10" label="Nom*" variant="outlined" required></v-text-field>
         </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
+        <v-col cols="12" sm="3">
           <v-text-field v-model="email" :rules="emailRules" label="Adresse email*" variant="outlined" required></v-text-field>
         </v-col>
       </v-row>

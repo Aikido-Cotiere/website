@@ -1,5 +1,5 @@
 import '@mdi/font/css/materialdesignicons.css'
-import { createApp } from 'vue'
+import { compile, createApp, h } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
@@ -55,6 +55,26 @@ app.use(StoryblokVue, {
     accessToken: process.env.NODE_ENV !== 'production' ? 'NaQIcr9tlPKIy30rudMk2gtt' : 'GOUExIGjPe9e2EXR5iLaQgtt',
     bridge: process.env.NODE_ENV !== 'production', // optimizes by excluding the bridge on production
     use: [apiPlugin],
+    richText: {
+        resolver: (component: string, data: any) => {
+            console.error(component);
+            debugger;
+            /* eslint-disable no-case-declarations */
+            switch (component) {
+                case 'link':
+
+                    let url: string = data.href;
+                    if (data.linktype == 'story') {
+                        url = import.meta.env.BASE_URL + data.href;
+                    }
+                    const link = compile(`<router-link to="${url}">${data.text}/router-link>`);
+                    return h(link);
+                default:
+                    return 'Resolver not defined';
+            }
+            /* eslint-enable no-case-declarations */
+        },
+    }
 })
 
 app.component('page_one_column', PageOneColumn)

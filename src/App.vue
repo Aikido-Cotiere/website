@@ -13,7 +13,10 @@ const { mobile } = useDisplay();
 <template>
   <v-app>
     <Suspense>
-      <the-mobile-menu v-if="mobile" v-model="openMobile"></the-mobile-menu>
+      <template #default>
+        <the-mobile-menu v-if="mobile" v-model="openMobile"></the-mobile-menu>
+      </template>
+      <template #fallback> Loading... </template>
     </Suspense>
 
     <the-header v-model="openMobile"></the-header>

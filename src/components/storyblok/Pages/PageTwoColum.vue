@@ -5,6 +5,7 @@ import { renderRichText } from '@storyblok/vue';
 const props = defineProps<{
   blok: Object | any;
 }>();
+
 const content_top = computed(() => renderRichText(props.blok.content_top));
 const content_bottom = computed(() => renderRichText(props.blok.content_bottom));
 const content_right = computed(() => renderRichText(props.blok.content_right));
