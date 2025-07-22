@@ -1,0 +1,1 @@
+import{_ as o}from"./DlAUqK2U.js";import{e as t,f as s,Q as r}from"./CCLXD2QW.js";const c={},n={class:"text-body-1"};function a(e,_){return s(),t("p",n,[r(e.$slots,"default")])}const d=o(c,[["render",a]]);export{d as default};

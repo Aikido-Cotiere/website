@@ -1,1 +1,0 @@
-import{_ as e}from"./DlAUqK2U.js";import{e as r,j as c}from"./D_uHdeL4.js";const n={};function o(t,s){return c(),r("div",null,"Premières inscriptions")}const a=e(n,[["render",o]]);export{a as default};

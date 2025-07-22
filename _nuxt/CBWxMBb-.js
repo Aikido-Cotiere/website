@@ -1,1 +1,0 @@
-import{_ as e}from"./DlAUqK2U.js";import{V as o}from"./BY1z2DuB.js";import{P as t,j as a,w as s,Q as c}from"./D_uHdeL4.js";const n={};function d(r,f){return a(),t(o,{variant:"outlined"},{default:s(()=>[c(r.$slots,"default")]),_:3})}const m=e(n,[["render",d]]);export{m as default};

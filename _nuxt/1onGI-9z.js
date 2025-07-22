@@ -1,0 +1,1 @@
+import{B as s,P as a,f as r,w as n,Q as p,a6 as i,bQ as l}from"./CCLXD2QW.js";const m=s({__name:"ProseLi",props:{active:{type:Boolean},disabled:{type:Boolean},color:{},variant:{},density:{},class:{},style:{}},setup(e){const t=e;return(o,c)=>(r(),a(l,i({"prepend-icon":"i-mdi-dot"},t),{default:n(()=>[p(o.$slots,"default")]),_:3},16))}});export{m as default};
