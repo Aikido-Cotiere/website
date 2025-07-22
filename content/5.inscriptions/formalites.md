@@ -12,7 +12,7 @@ group: Inscriptions
 #left
 ## Nouveau pratiquant (n'ayant jamais été inscrit à ATC)
 
-Vous renseignez en ligne le formulaire d'inscription ([Inscrivez-vous ...](/inscription/premiere)) et validez votre saisie.
+Vous renseignez en ligne le formulaire d'inscription ([Inscrivez-vous ...](/inscriptions/premiere)) et validez votre saisie.
 
 Nous imprimons le formulaire et vous le faisons passer lors d'un prochain entraînement pour validation et signature. L'inscription ne sera définitive qu'après règlement de la licence et de la cotisation et fourniture du certificat médical.
 
@@ -47,7 +47,7 @@ une photo d'identité sera à coller sur le passeport lorsqu'on vous le remettra
 #right
 ## Réinscription (pratiquant déjà enregistré)
 
-Vous renseignez en ligne le formulaire de réinscription (Réinscription) et validez votre saisie.
+Vous renseignez en ligne le formulaire de réinscription ([Réinsciption ...](/inscriptions/reinscription)) et validez votre saisie.
 
 ### Pièces à fournir
 

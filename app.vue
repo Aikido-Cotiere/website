@@ -1,28 +1,30 @@
 <template>
-  <v-app>
+  <v-app full-height>
     <v-navigation-drawer
       v-model="drawer"
-      :location="mobile ? 'bottom' : undefined"
-      :temporary="mobile"
-      :expand-on-hover="!mobile"
-      :rail="!mobile"
-      :rail-width="mobile ? undefined : 70"
+      :disable-resize-watcher="true"
+      :location="safeMobile ? 'bottom' : 'left'"
+      :temporary="safeMobile"
+      :permanent="!safeMobile"
+      :expand-on-hover="!safeMobile"
+      :rail="!safeMobile"
+      :rail-width="safeMobile ? undefined : 70"
       class="bg-white"
     >
       <the-global-menu />
     </v-navigation-drawer>
 
-    <v-app-bar density="default" color="red-darken-4" image="/main-banner.jpg" scroll-behavior="hide" class="bg-white">
+    <v-app-bar color="red-darken-4" lazy-img="/main-banner.jpg" scroll-behavior="hide" class="bg-white">
       <template #title>
         <v-app-bar-title class="d-flex justify-center">
-          <span class="text-wrap" :class="{ 'text-white': !mobile }">AÏKIDO TRADITIONNEL DE LA CÔTIERE</span>
+          <span class="text-wrap" :class="{ 'text-white': !safeMobile }">AÏKIDO TRADITIONNEL DE LA CÔTIERE</span>
         </v-app-bar-title>
       </template>
       <template #prepend>
         <v-img width="50" src="/main-logo.jpg" to="/" />
       </template>
       <template #append>
-        <v-app-bar-nav-icon v-if="mobile" color="white" variant="text" @click.stop="drawer = !drawer" />
+        <v-app-bar-nav-icon v-if="safeMobile" color="white" variant="text" @click.stop="drawer = !drawer" />
       </template>
     </v-app-bar>
 
@@ -40,5 +42,16 @@
 import { useDisplay } from 'vuetify';
 
 const { mobile } = useDisplay();
-const drawer = ref(!mobile.value);
+const drawer = ref(true);
+const safeMobile = ref(false);
+
+watch(mobile, (value) => {
+  if (value) {
+    drawer.value = false; // Close drawer on mobile
+    safeMobile.value = true; // Set safeMobile to true when on mobile
+  } else {
+    drawer.value = true; // Open drawer on desktop
+    safeMobile.value = false; // Set safeMobile to false when not on mobile
+  }
+});
 </script>
