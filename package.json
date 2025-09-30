@@ -28,6 +28,6 @@
     "@unocss/nuxt": "^66.3.3",
     "unocss": "^66.3.3",
     "vite-plugin-vuetify": "^2.1.1",
-    "vuetify": "^3.9.0"
+    "vuetify": "^3.10.3"
   }
 }
