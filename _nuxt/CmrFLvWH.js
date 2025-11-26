@@ -1,0 +1,1 @@
+import{r as e}from"./DCZMwDfD.js";import{_ as r}from"./DlAUqK2U.js";import{P as s,f as o,w as a,bP as c}from"./BgvQ7Fjg.js";import"./DYYQzo78.js";import"./CW2y4tI0.js";const n={};function i(t,f){return o(),s(c,{lines:"three",class:"align-center justify-center"},{default:a(()=>[e(t.$slots,"default",{mdcUnwrap:"p"})]),_:3})}const u=r(n,[["render",i]]);export{u as default};
