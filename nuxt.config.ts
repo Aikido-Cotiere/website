@@ -12,13 +12,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   compatibilityDate: '2024-04-03',
 
-  nitro: {
-    prerender: {
-      // Pre-render the homepage
-      routes: ['/'],
-      // Then crawl all the links on the page
-      crawlLinks: true
-    }
+  typescript: {
+    typeCheck: true
   },
 
   vuetify: {
@@ -38,25 +33,26 @@ export default defineNuxtConfig({
   },
 
   content: {
-    // Options
+    experimental: { sqliteConnector: 'native' },
   },
 
   studio: {
-    // repository: {
-    //   provider: 'github', // 'github' or 'gitlab'
-    //   owner: 'Aikido-Cotiere',
-    //   repo: 'website',
-    //   branch: 'master'
-    // },
-    // i18n: {
-    //   defaultLocale: 'fr' // 'en', 'fr' or 'de'
-    // },
+    repository: {
+      provider: 'github', // 'github' or 'gitlab'
+      owner: 'Aikido-Cotiere',
+      repo: 'website',
+      branch: 'master'
+    },
+    i18n: {
+      defaultLocale: 'fr' // 'en', 'fr' or 'de'
+    },
     git: {
       commit: {
         // Prefix to prepend (include trailing colon for conventional format)
         messagePrefix: 'content:'  // e.g. 'docs:', 'feat:', 'chore:'
       }
     },
+    route: '/_studio',
     editor: {
       components: {
         include: ['app/components/content/**'],

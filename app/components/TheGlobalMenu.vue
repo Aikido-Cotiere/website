@@ -13,7 +13,7 @@ import type { ContentNavigationItem } from '@nuxt/content';
 
 const { data } = await useAsyncData('navigation', () => {
   return (
-    queryCollectionNavigation('pages', ['title', 'icon', 'group', 'menu'])
+    queryCollectionNavigation('content', ['title', 'icon', 'group', 'menu'])
       //.where('draft', '=', false)
       //.where('partial', '=', false)
       .order('group', 'ASC')

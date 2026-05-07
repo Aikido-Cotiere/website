@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const route = useRoute();
-const { data } = await useAsyncData(route.path, () => queryCollection('pages').path(route.path).first());
+const { data } = await useAsyncData(route.path, () => queryCollection('content').path(route.path).first());
 
 useSeoMeta({
   title: data.value?.title,
