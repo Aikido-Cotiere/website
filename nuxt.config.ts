@@ -12,8 +12,13 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   compatibilityDate: '2024-04-03',
 
-  typescript: {
-    typeCheck: true
+  vite: {
+    optimizeDeps: {
+      include: [
+        'date-fns',
+        'date-fns/locale',
+      ]
+    }
   },
 
   vuetify: {
@@ -30,10 +35,6 @@ export default defineNuxtConfig({
   unocss: {
     icons: true,
 
-  },
-
-  content: {
-    experimental: { sqliteConnector: 'native' },
   },
 
   studio: {
