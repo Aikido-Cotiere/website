@@ -1,1 +1,0 @@
-import{cc as c,j as r,cd as o,ab as a,cE as n}from"./xXWZD_0G.js";const t=c({__name:"ProseImg",props:{src:{}},setup(s){const e=s;return(m,p)=>(r(),o(n,a(e,{src:s.src}),null,16,["src"]))}}),_=Object.assign(t,{__name:"ProseImg"});export{_ as default};

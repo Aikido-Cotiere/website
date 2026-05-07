@@ -1,0 +1,1 @@
+import{cd as c,j as r,ce as o,ac as a,cC as n}from"./CXz_aSOE.js";const t=c({__name:"ProseImg",props:{src:{}},setup(s){const e=s;return(m,p)=>(r(),o(n,a(e,{src:s.src}),null,16,["src"]))}}),_=Object.assign(t,{__name:"ProseImg"});export{_ as default};

@@ -1,0 +1,1 @@
+import{_ as r,j as o,ce as t,w as a,co as c}from"./CXz_aSOE.js";import{V as s}from"./BTWgM5uf.js";const n={};function d(e,_){return o(),t(s,{variant:"outlined"},{default:a(()=>[c(e.$slots,"default")]),_:3})}const i=Object.assign(r(n,[["render",d]]),{__name:"BorderedBlock"});export{i as default};

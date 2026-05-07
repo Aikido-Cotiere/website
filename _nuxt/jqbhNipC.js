@@ -1,0 +1,1 @@
+import{_ as s,j as a,k as o,co as r}from"./CXz_aSOE.js";const t={};function n(e,c){return a(),o("thead",null,[r(e.$slots,"default")])}const l=Object.assign(s(t,[["render",n]]),{__name:"ProseThead"});export{l as default};

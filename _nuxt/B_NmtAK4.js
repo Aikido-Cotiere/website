@@ -1,1 +1,0 @@
-import{_ as t,j as e,cd as a,w as c,cn as n,c4 as r}from"./xXWZD_0G.js";const o={};function _(s,i){return e(),a(r,{density:"compact",class:"bg-transparent"},{default:c(()=>[n(s.$slots,"default")]),_:3})}const f=Object.assign(t(o,[["render",_]]),{__name:"List"});export{f as default};

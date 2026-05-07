@@ -1,0 +1,1 @@
+import{_ as o,j as r,k as n,co as s}from"./CXz_aSOE.js";const t={};function c(e,a){return r(),n("strong",null,[s(e.$slots,"default")])}const l=Object.assign(o(t,[["render",c]]),{__name:"ProseStrong"});export{l as default};

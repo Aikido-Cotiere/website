@@ -1,1 +1,0 @@
-import{_ as s,j as t,k as o,cn as c}from"./xXWZD_0G.js";const n={},r={class:"text-body-1"};function a(e,_){return t(),o("p",r,[c(e.$slots,"default")])}const d=Object.assign(s(n,[["render",a]]),{__name:"ProseP"});export{d as default};

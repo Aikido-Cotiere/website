@@ -1,0 +1,1 @@
+import{_ as o,j as s,k as r,co as t}from"./CXz_aSOE.js";const n={};function c(e,a){return s(),r("tbody",null,[t(e.$slots,"default")])}const l=Object.assign(o(n,[["render",c]]),{__name:"ProseTbody"});export{l as default};

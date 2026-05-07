@@ -1,0 +1,1 @@
+import{_ as t,j as e,ce as a,w as c,co as n,c5 as r}from"./CXz_aSOE.js";const o={};function _(s,i){return e(),a(r,{density:"compact",class:"bg-transparent"},{default:c(()=>[n(s.$slots,"default")]),_:3})}const l=Object.assign(t(o,[["render",_]]),{__name:"List"});export{l as default};
