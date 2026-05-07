@@ -1,32 +1,30 @@
+import presetWind4 from '@unocss/preset-wind4'
+
 export default defineNuxtConfig({
-  compatibilityDate: '2025-05-15',
-
-  ssr: true,
-
   modules: [
     '@nuxt/content',
-    '@nuxt/fonts',
     '@nuxt/eslint',
+    '@nuxt/fonts',
     '@unocss/nuxt',
     'vuetify-nuxt-module',
   ],
-
-  unocss: {
-    icons: true
-  },
-
-  content: {
-    preview: {
-      //dev: true,
-      api: 'https://api.nuxt.studio'
-    },
-  },
+  devtools: { enabled: true },
+  compatibilityDate: '2024-04-03',
 
   vuetify: {
     vuetifyOptions: {
+      theme: {
+        defaultTheme: 'dark', // 'system' requires ssr: false
+      },
       icons: {
         defaultSet: 'unocss-mdi',
       }
-    }
-  }
+    },
+  },
+
+   unocss: {
+    icons: true,
+
+  },
+
 })
