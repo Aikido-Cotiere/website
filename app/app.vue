@@ -33,6 +33,8 @@ const { mobile } = useDisplay();
 const drawer = ref(true);
 const safeMobile = ref(false);
 
+useSeoMeta({googleSiteVerification: ''})
+
 watch(mobile, (value) => {
   if (value) {
     drawer.value = false; // Close drawer on mobile
