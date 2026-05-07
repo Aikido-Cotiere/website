@@ -1,9 +1,6 @@
 <template>
-  <v-list lines="three" class="align-center justify-center">
+  <v-list lines="three" class="align-center justify-center bg-transparent d-flex flex-column">
     <slot mdc-unwrap="p" />
   </v-list>
 </template>
 
-<script lang="ts" setup></script>
-
-<style></style>

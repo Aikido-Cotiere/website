@@ -9,6 +9,7 @@
       :expand-on-hover="!safeMobile"
       :rail="!safeMobile"
       :rail-width="safeMobile ? undefined : 70"
+      :mobile="safeMobile"
     >
       <the-global-menu />
     </v-navigation-drawer>
@@ -40,5 +41,17 @@ watch(mobile, (value) => {
     drawer.value = true; // Open drawer on desktop
     safeMobile.value = false; // Set safeMobile to false when not on mobile
   }
+}, {
+  immediate: true
 });
 </script>
+
+<style lang="scss" >
+
+@font-face {
+  font-family: "Gang of Three";
+  src:
+    local("go3v2"),
+    url("go3v2.ttf") format("opentype"),
+}
+</style>

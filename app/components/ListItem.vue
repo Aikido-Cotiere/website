@@ -1,15 +1,20 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
-  <v-list-item :prepend-icon="props.displayBullet ? 'mdi-circle-small' : ''">
-    <v-list-item-title v-if="$slots.title">
-      <slot name="title" />
+  <v-list-item class="py-3">
+    <template v-slot:prepend v-if="props.displayBullet">
+      <span class="text-red mr-5">&bull;</span>
+    </template>
+    <v-list-item-title class="py-0 mb-1 font-weight-bold title" v-if="$slots.title">
+      <slot name="title" mdc-unwrap="p" />
     </v-list-item-title>
-    <v-list-item-subtitle v-if="$slots.subtitle">
-      <slot name="subtitle" />
+    <v-list-item-subtitle class="font-italic mb-2" v-if="$slots.subtitle">
+      <slot name="subtitle" mdc-unwrap="p" />
     </v-list-item-subtitle>
-    <div class="text-caption">
-      <slot mdc-unwrap="p" />
-    </div>
+    <v-list-item-subtitle class="opacity-100" v-if="$slots.subtitle">
+      <div class="text-caption">
+        <slot mdc-unwrap="p" />
+      </div>
+    </v-list-item-subtitle>
   </v-list-item>
 </template>
 
@@ -19,4 +24,8 @@ const props = defineProps<{
 }>();
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.title {
+  line-height: normal;
+}
+</style>

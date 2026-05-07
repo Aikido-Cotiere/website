@@ -11,6 +11,6 @@ const ordererNews = computed(() => {
 
 <template>
   <v-container>
-    <news-details v-for="item in ordererNews" :key="item.id" :news="item" />
+    <news-details v-for="item in ordererNews" :key="item.id" :news="item" class="py-2" />
   </v-container>
 </template>

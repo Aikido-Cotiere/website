@@ -1,7 +1,7 @@
 <template>
-  <v-card variant="outlined" class="mb-2">
-    <v-card-title class="text-h6 text-wrap">{{ props.news.title }}</v-card-title>
-    <v-card-subtitle>{{ format(props.news.date, 'dd MMM yyyy', { locale: fr }) }}</v-card-subtitle>
+  <v-card variant="outlined" class="mb-5 blur">
+    <v-card-title class="text-display-medium font-weight-bold text-wrap">{{ props.news.title }}</v-card-title>
+    <v-card-subtitle class="text-display-small font-weight-bold ">{{ format(props.news.date, 'dd MMM yyyy', { locale: fr }) }}</v-card-subtitle>
     <v-card-text>
       <v-row>
         <v-col v-if="props.news.image" cols="3">
@@ -26,4 +26,9 @@ const props = defineProps<{
 }>();
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+
+.blur {
+  backdrop-filter: blur(30px);
+}
+</style>

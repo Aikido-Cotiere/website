@@ -2,7 +2,8 @@
     <v-app-bar class="title" color="red-darken-4" lazy-img="/main-banner.jpg" scroll-behavior="hide">
         <template #title>
             <v-app-bar-title class="d-flex justify-center">
-                <span class="text-wrap" :class="{ 'text-white': !isMobile }">AÏKIDO TRADITIONNEL DE LA CÔTIERE</span>
+                <span class="text-wrap " :class="{ 'text-display-large': !isMobile }">AÏKIDO TRADITIONNEL DE
+                    LA CÔTIERE</span>
             </v-app-bar-title>
         </template>
         <template #prepend>
@@ -27,5 +28,9 @@ const emits = defineEmits<{
 .title {
     box-shadow: 0 5px 10px rgb(94, 0, 0);
     background-color: rgb(94, 0, 0);
+
+    span {
+        font-family: Gang of Three !important;
+    }
 }
 </style>
