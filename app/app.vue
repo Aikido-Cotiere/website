@@ -52,6 +52,6 @@ watch(mobile, (value) => {
   font-family: "Gang of Three";
   src:
     local("go3v2"),
-    url("go3v2.ttf") format("opentype"),
+    url("/go3v2.ttf") format("opentype"),
 }
 </style>
