@@ -11,13 +11,13 @@ const isOpen = ref(false);
 <template>
 
   <header class="p-4 md:p-6">
-    <nav aria-label="main" class="mx-auto max-w-6xl flex flex-col justify-between py-2 md:flex-row md:items-center">
+    <nav aria-label="main" class="mx-auto flex max-w-6xl flex-col justify-between py-2 md:flex-row md:items-center font-medium text-white">
       <div class="flex items-center justify-between">
         <NuxtLink to="/" class="z-50" @click="isOpen = false">
           <the-app-logo />
           <span class="sr-only">{{ settings?.data.site_title }} Accueil</span>
         </NuxtLink>
-        <button @click="isOpen = true" class="block md:hidden p-2 text-3xl" :aria-expanded="isOpen">
+        <button @click="isOpen = true" class="block md:hidden p-2 text-3xl text-white" :aria-expanded="isOpen">
           <Icon name="ph:list-bold" />
         </button>
       </div>

@@ -1,4 +1,9 @@
 {
   "repositoryName": "aikido-traditionnel-cotiere",
-  "routes": []
+  "routes": [
+    {
+      "type": "index",
+      "path": "/index"
+    }
+  ]
 }

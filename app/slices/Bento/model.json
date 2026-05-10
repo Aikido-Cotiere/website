@@ -1,0 +1,80 @@
+{
+  "id": "bento",
+  "type": "SharedSlice",
+  "name": "Bento",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titre",
+            "placeholder": "Utiliser l'italic pour la mise en valeur (couleur)",
+            "single": "em,heading2",
+            "allowTargetBlank": true
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Corps",
+            "placeholder": "",
+            "single": "paragraph,strong,em",
+            "allowTargetBlank": true
+          }
+        },
+        "bento": {
+          "type": "Group",
+          "config": {
+            "label": "Bento",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Titre",
+                  "placeholder": "",
+                  "single": "heading3",
+                  "allowTargetBlank": true
+                }
+              },
+              "body": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Corps",
+                  "placeholder": "",
+                  "multi": "paragraph,strong,em",
+                  "allowTargetBlank": true
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "is_wide": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Afficher en grand ?",
+                  "default_value": false,
+                  "placeholder_true": "En Grand",
+                  "placeholder_false": "En petit"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "description": "Bento"
+}

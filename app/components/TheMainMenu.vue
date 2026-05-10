@@ -3,7 +3,7 @@
 import type { Content } from "@prismicio/client";
 
 defineProps<{
-  links?: Content.SettingsDocument.NavigationLink[];
+  links?: Content.SettingsDocument["data"]["navigation"];
 }>()
 </script>
 
