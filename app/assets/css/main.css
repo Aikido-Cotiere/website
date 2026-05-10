@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'DM Sans', sans-serif !important;
     background-image: url("/assets/noise-texture.svg");
 
     @apply grid bg-gray-950 bg-repeat text-gray-50;
