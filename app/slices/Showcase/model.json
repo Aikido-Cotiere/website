@@ -12,7 +12,7 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "heading": {
+        "title": {
           "type": "StructuredText",
           "config": {
             "label": "Titre",
@@ -41,7 +41,7 @@
             "default_value": "gear"
           }
         },
-        "subheading": {
+        "punchline": {
           "type": "StructuredText",
           "config": {
             "label": "Sous-titre",
@@ -81,7 +81,7 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "heading": {
+        "title": {
           "type": "StructuredText",
           "config": {
             "label": "Titre",
@@ -110,7 +110,7 @@
             "default_value": "gear"
           }
         },
-        "subheading": {
+        "punchline": {
           "type": "StructuredText",
           "config": {
             "label": "Sous-titre",

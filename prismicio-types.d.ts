@@ -526,10 +526,10 @@ export interface ShowcaseSliceDefaultPrimary {
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: showcase.default.primary.heading
+   * - **API ID Path**: showcase.default.primary.title
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  heading: prismic.RichTextField;
+  title: prismic.RichTextField;
 
   /**
    * Image field in *Showcase → Default → Primary*
@@ -557,10 +557,10 @@ export interface ShowcaseSliceDefaultPrimary {
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: showcase.default.primary.subheading
+   * - **API ID Path**: showcase.default.primary.punchline
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  subheading: prismic.RichTextField;
+  punchline: prismic.RichTextField;
 
   /**
    * Corps field in *Showcase → Default → Primary*
@@ -605,10 +605,10 @@ export interface ShowcaseSliceReversedPrimary {
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: showcase.reversed.primary.heading
+   * - **API ID Path**: showcase.reversed.primary.title
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  heading: prismic.RichTextField;
+  title: prismic.RichTextField;
 
   /**
    * Image field in *Showcase → Reversed Layout → Primary*
@@ -636,10 +636,10 @@ export interface ShowcaseSliceReversedPrimary {
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: showcase.reversed.primary.subheading
+   * - **API ID Path**: showcase.reversed.primary.punchline
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  subheading: prismic.RichTextField;
+  punchline: prismic.RichTextField;
 
   /**
    * Corps field in *Showcase → Reversed Layout → Primary*
