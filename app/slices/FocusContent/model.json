@@ -1,0 +1,119 @@
+{
+  "id": "focus_content",
+  "type": "SharedSlice",
+  "name": "FocusContent",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/focus_content/default/7fc5449352441caece7366cfee58edef55b76089.png?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "anchor": {
+          "type": "Text",
+          "config": {
+            "label": "Ancre",
+            "placeholder": "Ancre pour la navigation via des #"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titre",
+            "placeholder": "",
+            "single": "heading1",
+            "allowTargetBlank": true
+          }
+        },
+        "sub_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Sous titre",
+            "placeholder": "Utiliser l'italic pour la mise en valeur (couleur)",
+            "multi": "heading2,em",
+            "allowTargetBlank": true
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Contenu",
+            "placeholder": "",
+            "multi": "paragraph,preformatted,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+            "allowTargetBlank": true
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "liens": {
+          "type": "Link",
+          "config": {
+            "label": "Liens",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true,
+            "variants": [
+              "Lien",
+              "Bouton"
+            ]
+          }
+        },
+        "details": {
+          "type": "Group",
+          "config": {
+            "label": "Details",
+            "repeat": true,
+            "fields": {
+              "content_title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Titre de contenu",
+                  "placeholder": "Utiliser l'italic pour la mise en valeur (couleur)",
+                  "single": "heading3,em",
+                  "allowTargetBlank": true
+                }
+              },
+              "content_punchline": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Accroche de contenu",
+                  "placeholder": "Utiliser l'italic pour la mise en valeur (couleur)",
+                  "single": "heading4,em",
+                  "allowTargetBlank": true
+                }
+              },
+              "content_body": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Corps du contenu",
+                  "placeholder": "",
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "allowTargetBlank": true
+                }
+              },
+              "content_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image de contenu",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "description": "ContenuFocus"
+}

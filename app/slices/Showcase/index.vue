@@ -62,27 +62,20 @@ onMounted(() => {
 </script>
 
 <template>
-  <the-bounded
-    :data-slice-type="slice.slice_type"
-    :data-slice-variation="slice.variation"
-    class="relative"
-  >
+  <the-bounded :data-slice-type="slice.slice_type" :data-slice-variation="slice.variation" class="relative">
     <div
-      class="showcase__glow absolute -z-10 aspect-video w-full max-w-2xl rounded-full bg-sky-700 mix-blend-screen blur-[120px] filter"
-    ></div>
-    <header
-      class="showcase__heading text-balance text-center text-5xl font-medium md:text-7xl"
-    >
+      class="showcase__glow absolute -z-10 aspect-video w-full max-w-2xl rounded-full bg-sky-700 mix-blend-screen blur-[120px] filter">
+    </div>
+    <header class="showcase__heading text-balance text-center text-5xl font-medium md:text-7xl">
       <PrismicRichText :field="slice.primary.title" />
     </header>
 
     <div
-      class="relative mt-16 grid items-center gap-8 rounded-xl border border-sky-50/20 bg-gradient-to-b from-gray-50/15 to-gray-50/5 px-8 py-8 backdrop-blur-sm lg:grid-cols-3 lg:gap-0 lg:py-12"
-    >
+      class="relative mt-16 grid items-center gap-8 rounded-xl border border-sky-50/20 bg-gradient-to-b from-gray-50/15 to-gray-50/5 px-8 py-8 backdrop-blur-sm lg:grid-cols-3 lg:gap-0 lg:py-12">
       <div class="grid-background" />
       <div>
         <figure class="w-fit rounded-lg bg-sky-900 p-4 text-3xl">
-          <Icon :name="`noto:martial-arts-uniform`" class="block" />
+          <Icon :name="slice.primary.icon" class="block" />
         </figure>
         <h3 class="mt-6 text-2xl font-normal">
           <PrismicText :field="slice.primary.punchline" />
@@ -93,15 +86,11 @@ onMounted(() => {
 
         <PrismicLink :field="slice.primary.cta" class="button-variant mt-6" />
       </div>
-      <PrismicImage
-        :field="slice.primary.image"
-        class="opacity-90 shadow-2xl lg:col-span-2 lg:pt-0 rounded-md"
-        :class="
-          slice.variation === 'reversed'
-            ? 'lg:order-1 lg:translate-x-[15%]'
-            : 'lg:-order-1 lg:translate-x-[-15%]'
-        "
-      />
+
+      <PrismicImage :field="slice.primary.image" class=" shadow-2xl lg:col-span-2 lg:pt-0 rounded-md" :class="slice.variation === 'reversed'
+        ? 'lg:order-1 lg:translate-x-[15%]'
+        : 'lg:-order-1 lg:translate-x-[-15%]'
+        " />
     </div>
   </the-bounded>
 </template>

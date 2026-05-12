@@ -1,0 +1,52 @@
+{
+  "id": "contact",
+  "type": "SharedSlice",
+  "name": "Contact",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/contact/default/e08bbd12fc9c5268d750566fcfde3f7de0d645ae.png?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titre",
+            "placeholder": "Utiliser l'italic pour la mise en valeur (couleur)",
+            "multi": "heading2,em",
+            "allowTargetBlank": true
+          }
+        },
+        "address": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Adresse",
+            "placeholder": "",
+            "multi": "paragraph",
+            "allowTargetBlank": true
+          }
+        },
+        "email": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Email",
+            "placeholder": "",
+            "single": "paragraph",
+            "allowTargetBlank": true
+          }
+        },
+        "iframe_google_maps": {
+          "type": "Text",
+          "config": {
+            "label": "Iframe google maps",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ],
+  "description": "Contact"
+}

@@ -1,27 +1,47 @@
 {
-  "id": "index",
-  "label": "Accueil",
-  "repeatable": false,
+  "id": "focuses",
+  "label": "Focus",
+  "repeatable": true,
   "json": {
     "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Titre",
+          "placeholder": "",
+          "single": "heading1",
+          "allowTargetBlank": true
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "single": "paragraph",
+          "allowTargetBlank": true
+        }
+      },
+      "cover": {
+        "type": "Image",
+        "config": {
+          "label": "Couverture",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "showcase": {
-              "type": "SharedSlice"
-            },
-            "focuses": {
-              "type": "SharedSlice"
-            },
-            "hero": {
-              "type": "SharedSlice"
-            },
-            "bento": {
-              "type": "SharedSlice"
-            },
-            "contact": {
+            "focus_content": {
               "type": "SharedSlice"
             }
           }

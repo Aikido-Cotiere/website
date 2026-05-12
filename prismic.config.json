@@ -1,9 +1,20 @@
 {
   "repositoryName": "aikido-traditionnel-cotiere",
+  "libraries": [
+    "./app/slices"
+  ],
   "routes": [
     {
+      "type": "focuses",
+      "path": "/focuses/:uid"
+    },
+    {
       "type": "index",
-      "path": "/index"
+      "path": "/"
+    },
+    {
+      "type": "standard",
+      "path": "/:uid"
     }
   ]
 }

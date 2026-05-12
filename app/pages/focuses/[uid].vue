@@ -3,8 +3,9 @@ import { useScroll } from "@vueuse/core";
 import { components } from "~/slices";
 
 const prismic = usePrismic();
-const { data: page } = await useAsyncData("index", () =>
-  prismic.client.getSingle("index"),
+const route = useRoute();
+const { data: page } = await useAsyncData(route.params.uid as string, () =>
+  prismic.client.getByUID("focuses", route.params.uid as string),
 );
 
 useSeoMeta({
@@ -18,7 +19,7 @@ useSeoMeta({
 const { y } = useScroll(window)
 
 function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 watch(y, (newY) => {
@@ -31,12 +32,14 @@ watch(y, (newY) => {
     btn.classList.add("!hidden");
   }
 });
+
 </script>
 
 <template>
-  <main>
-    <button type="button" class="button-variant !fixed bottom-5 end-5 py-4 px-4 h-10 w-10 !hidden" id="btn-back-to-top"
-      @click="scrollToTop">
+  <main ref="el">
+    <button type="button"
+      class="!fixed bottom-5 end-5 button-variant py-4 px-4 h-10 w-10 !hidden"
+      id="btn-back-to-top" @click="scrollToTop">
       <Icon name="ph:arrow-up-bold" class="w-10 h-10" />
     </button>
     <SliceZone :slices="page?.data.slices ?? []" :components="components" />
