@@ -16,16 +16,18 @@ const props = defineProps(getSliceComponentProps<Content.FocusContentSlice>(
 	<hr v-if="index > 0" class="border-t border-gray-600 m-0 p-0 inset-3 md:mx-96" />
 	<the-bounded :id="slice.primary.anchor" :data-slice-type="slice.slice_type" :data-slice-variation="slice.variation"
 		class="first:!py-0">
-		<header class="focus__heading text-balance text-center text-5xl font-medium md:text-7xl">
+		<header v-if="$prismic.isFilled.richText(slice.primary.title)"
+			class="focus__heading text-balance text-center text-5xl font-medium md:text-7xl">
 			<PrismicRichText :field="slice.primary.title" :components="{ em: EmphasisText, heading2: TitleText }" />
 		</header>
 
-		<div class="focus__heading text-balance text-center text-2xl font-medium md:text-3xl">
+		<div v-if="$prismic.isFilled.richText(slice.primary.sub_title)"
+			class="focus__heading text-balance text-center text-2xl font-medium md:text-3xl">
 			<PrismicRichText :field="slice.primary.sub_title" :components="{ em: EmphasisText, heading3: TitleText }" />
 		</div>
 
-		<div class="prose mt-6 text-balance text-justify md:text-xl text-gray-300"
-			v-if="$prismic.isFilled.richText(slice.primary.content)">
+		<div v-if="$prismic.isFilled.richText(slice.primary.content)"
+			class="prose mt-6 text-balance text-justify md:text-xl text-gray-300">
 			<PrismicRichText :field="slice.primary.content" />
 		</div>
 
@@ -37,15 +39,20 @@ const props = defineProps(getSliceComponentProps<Content.FocusContentSlice>(
 			</PrismicImage>
 		</div>
 
-		<ul class="py-9" v-if="slice.primary.liens && slice.primary.liens.length > 0">
+		<ul class="py-9 flex gap-4 flex-wrap" v-if="slice.primary.liens && slice.primary.liens.length > 0">
 			<li v-for="link in slice.primary.liens" :key="link.key" class="">
-				<NuxtLink  :to="(link as unknown as { url: string }).url"
-					:field="link" :class="{ 'button-variant': link.variant == 'Bouton' }"
-					class="block min-h-11 px-3 text-3xl first:mt-8 md:inline-flex md:items-center md:px-unset md:text-base md:first:mt-0" >
-				{{ link.text }}
+				<NuxtLink :to="(link as unknown as { url: string }).url" :field="link" :class="{
+					'button-variant': link.variant == 'Bouton',
+					'hover:underline text-teal-500': link.variant != 'Bouton'
+				}" class="block min-h-11 px-3 text-3xl first:mt-8 md:inline-flex md:items-center md:px-unset md:text-base md:first:mt-0">
+					{{ link.text }}
 				</NuxtLink>
 			</li>
 		</ul>
+
+		<div v-if="slice.primary.iframe" v-html="slice.primary.iframe"
+			class="z-20 scale-[.98] rounded-xl transition-transform duration-300 group-hover:scale-100 aspect-video">
+		</div>
 
 		<div class="mt-20 grid gap-16">
 			<div v-for="(detail, index) in slice.primary.details" :key="index"
@@ -61,11 +68,22 @@ const props = defineProps(getSliceComponentProps<Content.FocusContentSlice>(
 							:components="{ em: EmphasisText, heading2: TitleText }" />
 					</h3>
 					<div class="max-w-md lg:max-w-xl md:text-xl lg:text-2xl" :class="{ 'text-right': index % 2 }">
-						<PrismicRichText :field="detail.content_punchline" />
+						<PrismicRichText :field="detail.content_punchline"
+							:components="{ em: EmphasisText, heading3: TitleText }" />
 					</div>
 					<div class="max-w-md lg:max-w-xl" :class="{ 'text-right': index % 2 }">
 						<PrismicRichText :field="detail.content_body" />
 					</div>
+					<ul class="py-9 flex gap-4 flex-wrap" v-if="detail.content_link && detail.content_link.length > 0">
+						<li v-for="link in detail.content_link" :key="link.key" class="">
+							<NuxtLink :to="(link as unknown as { url: string }).url" :field="link" :class="{
+								'button-variant': link.variant == 'Bouton',
+								'hover:underline text-teal-500': link.variant != 'Bouton'
+							}" class="block min-h-11 px-3 text-3xl first:mt-8 md:inline-flex md:items-center md:px-unset md:text-base md:first:mt-0">
+								{{ link.text }}
+							</NuxtLink>
+						</li>
+					</ul>
 				</div>
 
 				<div class="relative" :class="{

@@ -11,6 +11,13 @@
       "docURL": "...",
       "version": "initial",
       "primary": {
+        "anchor": {
+          "type": "Text",
+          "config": {
+            "label": "Ancre",
+            "placeholder": ""
+          }
+        },
         "title": {
           "type": "StructuredText",
           "config": {

@@ -12,7 +12,7 @@ defineProps(getSliceComponentProps<Content.ContactSlice>(
 
 <template>
 	<hr class="border-t border-gray-600 m-0 p-0" />
-	<the-bounded :data-slice-type="slice.slice_type" :data-slice-variation="slice.variation">
+	<the-bounded :id="slice.primary.anchor" :data-slice-type="slice.slice_type" :data-slice-variation="slice.variation">
 		<PrismicRichText :field="slice.primary.title" :components="{ em: EmphasisText, heading2: TitleText }" />
 		<div class="mt-20 grid gap-16">
 			<div

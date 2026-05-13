@@ -84,7 +84,7 @@ onMounted(() => {
           <PrismicRichText :field="slice.primary.body" />
         </div>
 
-        <PrismicLink :field="slice.primary.cta" class="button-variant mt-6" />
+        <PrismicLink :field="slice.primary.cta" class="button-variant hover:cursor-pointer mt-6" />
       </div>
 
       <PrismicImage :field="slice.primary.image" class=" shadow-2xl lg:col-span-2 lg:pt-0 rounded-md" :class="slice.variation === 'reversed'

@@ -6,7 +6,7 @@
   "routes": [
     {
       "type": "focuses",
-      "path": "/focuses/:uid"
+      "path": "/focus/:uid"
     },
     {
       "type": "index",

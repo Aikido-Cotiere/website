@@ -108,8 +108,30 @@
                   "constraint": {},
                   "thumbnails": []
                 }
+              },
+              "content_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Lien",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": true,
+                  "variants": [
+                    "Lien",
+                    "Bouton"
+                  ]
+                }
               }
             }
+          }
+        },
+        "iframe": {
+          "type": "Text",
+          "config": {
+            "label": "Iframe",
+            "placeholder": ""
           }
         }
       }

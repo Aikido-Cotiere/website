@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+import { useFavicon } from '@vueuse/core';
+import favicon from '/assets/favicon.ico';
+
 const primic = usePrismic();
 
 const { data: settings } = await useAsyncData("settings", () =>
@@ -12,6 +15,8 @@ useSeoMeta({
   ogDescription: settings.value?.data.site_description,
   ogImage: settings.value?.data.site_image.url,
 });
+
+useFavicon(favicon)
 </script>
 
 <template>

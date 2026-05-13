@@ -594,6 +594,16 @@ export type BentoSlice = prismic.SharedSlice<"bento", BentoSliceVariation>;
  */
 export interface ContactSliceDefaultPrimary {
 	/**
+	 * Ancre field in *Contact → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact.default.primary.anchor
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	anchor: prismic.KeyTextField;
+	
+	/**
 	 * Titre field in *Contact → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text
@@ -700,6 +710,16 @@ export interface FocusContentSliceDefaultPrimaryDetailsItem {
 	 * - **Documentation**: https://prismic.io/docs/fields/image
 	 */
 	content_image: prismic.ImageField<never>;
+	
+	/**
+	 * Lien field in *FocusContent → Default → Primary → Details*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: focus_content.default.primary.details[].content_link
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	content_link: prismic.Repeatable<prismic.LinkField<string, string, unknown, prismic.FieldState, "Lien" | "Bouton">>;
 }
 
 /**
@@ -775,6 +795,16 @@ export interface FocusContentSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
 	 */
 	details: prismic.GroupField<Simplify<FocusContentSliceDefaultPrimaryDetailsItem>>;
+	
+	/**
+	 * Iframe field in *FocusContent → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: focus_content.default.primary.iframe
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	iframe: prismic.KeyTextField;
 }
 
 /**
