@@ -1,0 +1,64 @@
+{
+  "id": "focuses",
+  "type": "SharedSlice",
+  "name": "Focuses",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/focuses/default/459c1e0a919465d1215dd203faae8c8267797db2.png?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titre",
+            "placeholder": "",
+            "single": "heading2",
+            "allowTargetBlank": true
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Corps",
+            "placeholder": "",
+            "multi": "paragraph,em,strong",
+            "allowTargetBlank": true
+          }
+        },
+        "focuses": {
+          "type": "Group",
+          "config": {
+            "label": "Focus sur",
+            "repeat": true,
+            "fields": {
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "select": "document",
+                  "customtypes": [
+                    {
+                      "id": "focuses",
+                      "fields": [
+                        "title",
+                        "description",
+                        "cover"
+                      ]
+                    }
+                  ],
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ],
+  "description": "Focus sur quelque chose"
+}

@@ -1,0 +1,86 @@
+{
+  "id": "standard",
+  "label": "Standard",
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Titre",
+          "placeholder": "En italic pour de la mise en valeur",
+          "single": "heading1,strong,em",
+          "allowTargetBlank": true
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "body": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Contenu",
+          "placeholder": "",
+          "multi": "paragraph,strong,em",
+          "allowTargetBlank": true
+        }
+      },
+      "cta": {
+        "type": "Link",
+        "config": {
+          "label": "CTA",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false,
+          "variants": [
+            "Lien",
+            "Bouton"
+          ]
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "Meta Image",
+          "constraint": {
+            "width": 2400,
+            "height": 1260
+          },
+          "thumbnails": []
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "page"
+}
