@@ -1,4 +1,3 @@
-
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -7,6 +6,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxt/fonts",
     "@nuxt/icon",
+    "@vueuse/nuxt"
   ],
 
   css: ["@/assets/css/main.css"],
@@ -15,5 +15,16 @@ export default defineNuxtConfig({
     options: {
       scrollBehaviorType: "smooth",
     },
+  },
+
+  vite: {
+    optimizeDeps: {
+      include: [
+        '@vue/devtools-core',
+        '@vue/devtools-kit',
+        'gsap',
+        'gsap/dist/ScrollTrigger', // CJS
+      ]
+    }
   }
 })
