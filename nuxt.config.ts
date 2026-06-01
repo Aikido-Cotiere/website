@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxt/fonts",
     "@nuxt/icon",
-    "@vueuse/nuxt"
+    "@vueuse/nuxt",
+    "./app/modules/qrcode"
   ],
 
   css: ["@/assets/css/main.css"],
