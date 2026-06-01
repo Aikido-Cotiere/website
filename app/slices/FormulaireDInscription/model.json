@@ -1,0 +1,45 @@
+{
+  "id": "subscribe_form",
+  "type": "SharedSlice",
+  "name": "FormulaireDInscription",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "form_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titre du formaulaire",
+            "placeholder": "",
+            "single": "heading2,em",
+            "allowTargetBlank": true
+          }
+        },
+        "block": {
+          "type": "Group",
+          "config": {
+            "label": "Block",
+            "repeat": true,
+            "fields": {
+              "bloc_activation": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Activer le bloc",
+                  "default_value": true,
+                  "placeholder_true": "true",
+                  "placeholder_false": "false"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "description": "FormulaireDInscription"
+}

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import {
+	breakpointsTailwind
+	, useBreakpoints
+} from '@vueuse/core'
 import type { Content } from "@prismicio/client";
 import gsap from "gsap"
 
@@ -8,9 +12,11 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
 	["slice", "index", "slices", "context"]
 ));
 
+const breakpoints = useBreakpoints(breakpointsTailwind);
+
 onMounted(() => {
 	const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-	if (prefersReducedMotion) {
+	if (prefersReducedMotion || breakpoints.smaller('md')) {
 		gsap.set('.hero__title, .hero__punchline, .hero__button, .hero__image, .hero__glow', {
 			opacity: 1
 		});
@@ -50,7 +56,7 @@ onMounted(() => {
 <template>
 	<the-bounded :data-slice-type="slice.slice_type" :data-slice-variation="slice.variation">
 		<div class="text-center relative">
-			<ying-yang-grid />
+			<ying-yang-grid v-if="breakpoints.greaterOrEqual('md')" />
 			<h1 class="hero__title mx-auto max-w-3xl text-balance text-5xl font-medium opacity-0 md:text-7xl">
 				<PrismicText :field="slice.primary.title" />
 			</h1>
