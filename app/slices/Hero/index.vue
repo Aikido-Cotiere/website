@@ -13,13 +13,16 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
 ));
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
+const displayYingYang = ref(true);
 
 onMounted(() => {
+	
 	const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 	if (prefersReducedMotion || breakpoints.smaller('md')) {
 		gsap.set('.hero__title, .hero__punchline, .hero__button, .hero__image, .hero__glow', {
 			opacity: 1
 		});
+		displayYingYang.value = false
 		return;
 	}
 
@@ -51,12 +54,14 @@ onMounted(() => {
 		]
 	})
 });
+
+
 </script>
 
 <template>
 	<the-bounded :data-slice-type="slice.slice_type" :data-slice-variation="slice.variation">
 		<div class="text-center relative">
-			<ying-yang-grid v-if="breakpoints.greaterOrEqual('md')" />
+			<ying-yang-grid v-if="displayYingYang" />
 			<h1 class="hero__title mx-auto max-w-3xl text-balance text-5xl font-medium opacity-0 md:text-7xl">
 				<PrismicText :field="slice.primary.title" />
 			</h1>

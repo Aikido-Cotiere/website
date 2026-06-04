@@ -49,7 +49,11 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "subscription_form": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

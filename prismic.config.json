@@ -13,12 +13,12 @@
       "path": "/"
     },
     {
-      "type": "inscriptions",
-      "path": "/inscriptions"
-    },
-    {
       "type": "standard",
       "path": "/:uid"
+    },
+    {
+      "type": "news",
+      "path": "/news/:uid"
     }
   ]
 }

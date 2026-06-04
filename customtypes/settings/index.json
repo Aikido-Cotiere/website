@@ -1,6 +1,6 @@
 {
   "id": "settings",
-  "label": "Paramètres",
+  "label": "Menu principal",
   "repeatable": false,
   "json": {
     "Main": {

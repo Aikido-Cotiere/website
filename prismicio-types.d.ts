@@ -46,66 +46,6 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-type ContactDocumentDataSlicesSlice = never
-
-/**
- * Content for Contact documents
- */
-interface ContactDocumentData {
-	/**
-	 * Slice Zone field in *Contact*
-	 *
-	 * - **Field Type**: Slice Zone
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: contact.slices[]
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/slices
-	 */
-	slices: prismic.SliceZone<ContactDocumentDataSlicesSlice>;/**
-	 * Meta Title field in *Contact*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: A title of the page used for social media and search engines
-	 * - **API ID Path**: contact.meta_title
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	meta_title: prismic.KeyTextField;
-	
-	/**
-	 * Meta Description field in *Contact*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: A brief summary of the page
-	 * - **API ID Path**: contact.meta_description
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	meta_description: prismic.KeyTextField;
-	
-	/**
-	 * Meta Image field in *Contact*
-	 *
-	 * - **Field Type**: Image
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: contact.meta_image
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/fields/image
-	 */
-	meta_image: prismic.ImageField<never>;
-}
-
-/**
- * Contact document from Prismic
- *
- * - **API ID**: `contact`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/content-modeling
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type ContactDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<ContactDocumentData>, "contact", Lang>;
-
 type FocusesDocumentDataSlicesSlice = FocusContentSlice
 
 /**
@@ -259,66 +199,6 @@ interface IndexDocumentData {
  */
 export type IndexDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<IndexDocumentData>, "index", Lang>;
 
-type InscriptionsDocumentDataSlicesSlice = SubscribeFormSlice
-
-/**
- * Content for Inscriptions documents
- */
-interface InscriptionsDocumentData {
-	/**
-	 * Slice Zone field in *Inscriptions*
-	 *
-	 * - **Field Type**: Slice Zone
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: inscriptions.slices[]
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/slices
-	 */
-	slices: prismic.SliceZone<InscriptionsDocumentDataSlicesSlice>;/**
-	 * Meta Title field in *Inscriptions*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: A title of the page used for social media and search engines
-	 * - **API ID Path**: inscriptions.meta_title
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	meta_title: prismic.KeyTextField;
-	
-	/**
-	 * Meta Description field in *Inscriptions*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: A brief summary of the page
-	 * - **API ID Path**: inscriptions.meta_description
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	meta_description: prismic.KeyTextField;
-	
-	/**
-	 * Meta Image field in *Inscriptions*
-	 *
-	 * - **Field Type**: Image
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: inscriptions.meta_image
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/fields/image
-	 */
-	meta_image: prismic.ImageField<never>;
-}
-
-/**
- * Inscriptions document from Prismic
- *
- * - **API ID**: `inscriptions`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/content-modeling
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type InscriptionsDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<InscriptionsDocumentData>, "inscriptions", Lang>;
-
 type NewsDocumentDataSlicesSlice = never
 
 /**
@@ -380,11 +260,11 @@ interface NewsDocumentData {
 export type NewsDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<NewsDocumentData>, "news", Lang>;
 
 /**
- * Content for Paramètres documents
+ * Content for Menu principal documents
  */
 interface SettingsDocumentData {
 	/**
-	 * Titre du site field in *Paramètres*
+	 * Titre du site field in *Menu principal*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
@@ -395,7 +275,7 @@ interface SettingsDocumentData {
 	site_title: prismic.KeyTextField;
 	
 	/**
-	 * Description du site field in *Paramètres*
+	 * Description du site field in *Menu principal*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
@@ -406,7 +286,7 @@ interface SettingsDocumentData {
 	site_description: prismic.KeyTextField;
 	
 	/**
-	 * Image du site field in *Paramètres*
+	 * Image du site field in *Menu principal*
 	 *
 	 * - **Field Type**: Image
 	 * - **Placeholder**: *None*
@@ -417,7 +297,7 @@ interface SettingsDocumentData {
 	site_image: prismic.ImageField<never>;
 	
 	/**
-	 * Navigation field in *Paramètres*
+	 * Navigation field in *Menu principal*
 	 *
 	 * - **Field Type**: Link
 	 * - **Placeholder**: *None*
@@ -429,7 +309,7 @@ interface SettingsDocumentData {
 }
 
 /**
- * Paramètres document from Prismic
+ * Menu principal document from Prismic
  *
  * - **API ID**: `settings`
  * - **Repeatable**: `false`
@@ -439,7 +319,7 @@ interface SettingsDocumentData {
  */
 export type SettingsDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
 
-type StandardDocumentDataSlicesSlice = never
+type StandardDocumentDataSlicesSlice = SubscriptionFormSlice
 
 /**
  * Content for Standard documents
@@ -543,7 +423,7 @@ interface StandardDocumentData {
  */
 export type StandardDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<StandardDocumentData>, "standard", Lang>;
 
-export type AllDocumentTypes = ContactDocument | FocusesDocument | IndexDocument | InscriptionsDocument | NewsDocument | SettingsDocument | StandardDocument;
+export type AllDocumentTypes = FocusesDocument | IndexDocument | NewsDocument | SettingsDocument | StandardDocument;
 
 /**
  * Item in *Bento → Default → Primary → Bento*
@@ -1196,68 +1076,27 @@ type ShowcaseSliceVariation = ShowcaseSliceDefault | ShowcaseSliceReversed
 export type ShowcaseSlice = prismic.SharedSlice<"showcase", ShowcaseSliceVariation>;
 
 /**
- * Item in *FormulaireDInscription → Default → Primary → Block*
- */
-export interface SubscribeFormSliceDefaultPrimaryBlockItem {
-	/**
-	 * Activer le bloc field in *FormulaireDInscription → Default → Primary → Block*
-	 *
-	 * - **Field Type**: Boolean
-	 * - **Placeholder**: *None*
-	 * - **Default Value**: true
-	 * - **API ID Path**: subscribe_form.default.primary.block[].bloc_activation
-	 * - **Documentation**: https://prismic.io/docs/fields/boolean
-	 */
-	bloc_activation: prismic.BooleanField;
-}
-
-/**
- * Primary content in *FormulaireDInscription → Default → Primary*
- */
-export interface SubscribeFormSliceDefaultPrimary {
-	/**
-	 * Titre du formaulaire field in *FormulaireDInscription → Default → Primary*
-	 *
-	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: subscribe_form.default.primary.form_title
-	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
-	 */
-	form_title: prismic.RichTextField;
-	
-	/**
-	 * Block field in *FormulaireDInscription → Default → Primary*
-	 *
-	 * - **Field Type**: Group
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: subscribe_form.default.primary.block[]
-	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-	 */
-	block: prismic.GroupField<Simplify<SubscribeFormSliceDefaultPrimaryBlockItem>>;
-}
-
-/**
  * Default variation for FormulaireDInscription Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type SubscribeFormSliceDefault = prismic.SharedSliceVariation<"default", Simplify<SubscribeFormSliceDefaultPrimary>, never>;
+export type SubscriptionFormSliceDefault = prismic.SharedSliceVariation<"default", Record<string, never>, never>;
 
 /**
  * Slice variation for *FormulaireDInscription*
  */
-type SubscribeFormSliceVariation = SubscribeFormSliceDefault
+type SubscriptionFormSliceVariation = SubscriptionFormSliceDefault
 
 /**
  * FormulaireDInscription Shared Slice
  *
- * - **API ID**: `subscribe_form`
+ * - **API ID**: `subscription_form`
  * - **Description**: FormulaireDInscription
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type SubscribeFormSlice = prismic.SharedSlice<"subscribe_form", SubscribeFormSliceVariation>;
+export type SubscriptionFormSlice = prismic.SharedSlice<"subscription_form", SubscriptionFormSliceVariation>;
 
 declare module "@prismicio/client" {
 	interface CreateClient {
@@ -1274,18 +1113,12 @@ declare module "@prismicio/client" {
 	
 	namespace Content {
 		export type {
-			ContactDocument,
-			ContactDocumentData,
-			ContactDocumentDataSlicesSlice,
 			FocusesDocument,
 			FocusesDocumentData,
 			FocusesDocumentDataSlicesSlice,
 			IndexDocument,
 			IndexDocumentData,
 			IndexDocumentDataSlicesSlice,
-			InscriptionsDocument,
-			InscriptionsDocumentData,
-			InscriptionsDocumentDataSlicesSlice,
 			NewsDocument,
 			NewsDocumentData,
 			NewsDocumentDataSlicesSlice,
@@ -1324,11 +1157,9 @@ declare module "@prismicio/client" {
 			ShowcaseSliceVariation,
 			ShowcaseSliceDefault,
 			ShowcaseSliceReversed,
-			SubscribeFormSlice,
-			SubscribeFormSliceDefaultPrimaryBlockItem,
-			SubscribeFormSliceDefaultPrimary,
-			SubscribeFormSliceVariation,
-			SubscribeFormSliceDefault
+			SubscriptionFormSlice,
+			SubscriptionFormSliceVariation,
+			SubscriptionFormSliceDefault
 		}
 	}
 }

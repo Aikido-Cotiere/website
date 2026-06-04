@@ -10,5 +10,5 @@ export const components = defineSliceZoneComponents({
 	focuses: defineAsyncComponent(() => import("./Focuses/index.vue")),
 	hero: defineAsyncComponent(() => import("./Hero/index.vue")),
 	showcase: defineAsyncComponent(() => import("./Showcase/index.vue")),
-	subscribe_form: defineAsyncComponent(() => import("./FormulaireDInscription/index.vue"))
+	subscription_form: defineAsyncComponent(() => import("./FormulaireDInscription/index.vue"))
 });

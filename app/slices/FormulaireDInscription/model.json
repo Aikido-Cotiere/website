@@ -1,5 +1,5 @@
 {
-  "id": "subscribe_form",
+  "id": "subscription_form",
   "type": "SharedSlice",
   "name": "FormulaireDInscription",
   "variations": [
@@ -7,38 +7,9 @@
       "id": "default",
       "name": "Default",
       "description": "Default",
-      "imageUrl": "",
+      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/subscription_form/default/83bf7db952d46d9503428b7a68e2e310bd9ddd25.png?auto=compress%2Cformat",
       "docURL": "...",
-      "version": "initial",
-      "primary": {
-        "form_title": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Titre du formaulaire",
-            "placeholder": "",
-            "single": "heading2,em",
-            "allowTargetBlank": true
-          }
-        },
-        "block": {
-          "type": "Group",
-          "config": {
-            "label": "Block",
-            "repeat": true,
-            "fields": {
-              "bloc_activation": {
-                "type": "Boolean",
-                "config": {
-                  "label": "Activer le bloc",
-                  "default_value": true,
-                  "placeholder_true": "true",
-                  "placeholder_false": "false"
-                }
-              }
-            }
-          }
-        }
-      }
+      "version": "initial"
     }
   ],
   "description": "FormulaireDInscription"
