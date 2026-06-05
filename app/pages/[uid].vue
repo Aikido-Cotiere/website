@@ -35,7 +35,7 @@ watch(y, (newY) => {
 </script>
 
 <template>
-  <main>
+  <main class="flex flex-wrap max-w-full">
     <button type="button" class="button-variant !fixed bottom-5 end-5 py-4 px-4 h-10 w-10 !hidden" id="btn-back-to-top"
       @click="scrollToTop">
       <Icon name="ph:arrow-up-bold" class="w-10 h-10" />

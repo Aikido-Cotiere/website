@@ -8,12 +8,15 @@ const props = defineProps(getSliceComponentProps<Content.SubscriptionFormSlice>(
 	["slice", "index", "slices", "context"]
 ));
 
+const sexes = ['Homme', 'Femme']
+const known = ["Affichage", "Bouche à oreille", "Distribution en boîte aux lettres", "Facebook", "Forum des associations", "Journal", "Lien depuis un autre site", "Site internet du dojo"]
+
 const { r$ } = useRegle({
 	adherent: {
 		name: '',
 		surname: '',
 		birthDate: undefined,
-		sex: undefined
+		sex: sexes[0]
 	},
 	contact: {
 		address: '',
@@ -29,7 +32,7 @@ const { r$ } = useRegle({
 	},
 	consent: true,
 	aikido: {
-		howKnown: undefined,
+		howKnown: known[0],
 		oldDojo: '',
 		epa: '',
 	},
@@ -42,7 +45,7 @@ const { r$ } = useRegle({
 		name: { required, minLength: minLength(1) },
 		surname: { required, minLength: minLength(1) },
 		birthDate: { required },
-		sex: { required, oneOf: oneOf(['Homme', 'Femme']) },
+		sex: { required, oneOf: oneOf(sexes) },
 	},
 	contact: {
 		address: { required, minLength: minLength(1) },
@@ -53,12 +56,12 @@ const { r$ } = useRegle({
 		emmergencyContact: { required, regex: withMessage(regex(/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/), "Le téléphone est invalide") }
 	},
 	child: {
-		firstParent: { required, minLength: minLength(1) },
-		secondParent: { required, minLength: minLength(1) }
+		firstParent: { minLength: minLength(1) },
+		secondParent: { minLength: minLength(1) }
 	},
 	consent: { required, boolean },
 	aikido: {
-		howKnown: { oneOf: oneOf([""]) },
+		howKnown: { oneOf: oneOf(known) },
 		oldDojo: {},
 		epa: {},
 	},
@@ -105,8 +108,8 @@ async function onSubmit() {
 </script>
 
 <template>
-	<the-bounded :data-slice-type="slice.slice_type" :data-slice-variation="slice.variation" class="relative">
-		<form class="flex flex-col gap-5" @submit.prevent="onSubmit">
+	<the-bounded :data-slice-type="slice.slice_type" :data-slice-variation="slice.variation">
+		<form class="flex flex-col flex-wrap gap-5" @submit.prevent="onSubmit">
 			<h2 class="mx-auto max-w-3xl text-balance text-2xl font-medium md:text-5xl">
 				<span>Information de l'adhérent</span>
 			</h2>
@@ -115,7 +118,7 @@ async function onSubmit() {
 				<input-field label="Prénom" placeholder="Prénom de l'adhérent" :field="r$.adherent.surname" />
 				<input-field label="Date de naissance" placeholder="Date de naissance de l'adhérent"
 					:field="r$.adherent.birthDate" type="date" icon="mdi-calendar" />
-				<select-option-tab label="sexe" name="sexe" :options="['Homme', 'Femme']" :field="r$.adherent.sex" />
+				<select-option-tab label="sexe" name="sexe" :options="sexes" :field="r$.adherent.sex" />
 			</div>
 
 			<h2 class="mx-auto max-w-3xl text-balance text-2xl font-medium md:text-5xl">
@@ -152,8 +155,10 @@ async function onSubmit() {
 			<h2 class="mx-auto max-w-3xl text-balance text-2xl font-medium md:text-5xl">
 				<span>Niveau de pratique</span>
 			</h2>
+			<select-option-tab label="Comment avez-vous connu le dojo ?" name="known" :options="known"
+				:field="r$.aikido.howKnown" />
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-				<input-field label="Comment avez-vous connu le dojo ?" :field="r$.aikido.howKnown" />
+
 				<input-field label="Ancien dojo (si vous avez déjà pratiqué à l'EPA)" :field="r$.aikido.oldDojo" />
 				<input-field label="Numéro EPA" :field="r$.aikido.epa" />
 			</div>

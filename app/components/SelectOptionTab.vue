@@ -31,10 +31,10 @@ const safeOptions = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div class="flex flex-col justify-start items-start">
     <p class="mb-2 font-medium" :class="field?.$error ? 'text-red-700' : ''">{{ label }}<span
         v-if="isRequired">&nbsp;*</span></p>
-    <div class="flex space-x-2 p-1 border border-gray-500/50 rounded-full text-sm"
+    <div class="flex flex-wrap item-center justify-center space-x-2 p-1 border border-gray-500/50 rounded-full text-sm"
       :class="field?.$error ? '!border-red-700 !text-red-700' : ''">
       <div v-for="option in safeOptions" class="flex items-center">
         <input type="radio" :id="option.value" :value="option.value" v-model="field.$value" class="hidden peer">
