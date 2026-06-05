@@ -1,116 +1,141 @@
 <script setup lang="ts">
 import type { Content } from "@prismicio/client";
+import { required, minLength, date as dateRule, nativeEnum, boolean, email as emailRule, oneOf, regex, numeric, exactLength } from "@regle/rules";
 
 // The array passed to `getSliceComponentProps` is purely optional.
 // Consider it as a visual hint for you when templating your slice.
-defineProps(getSliceComponentProps<Content.SubscriptionFormSlice>(
+const props = defineProps(getSliceComponentProps<Content.SubscriptionFormSlice>(
 	["slice", "index", "slices", "context"]
 ));
 
-const name = ref('')
-const surname = ref('')
-const date = ref('')
-const sexe = ref('Homme')
-
-const address = ref('')
-const postalCode = ref('')
-const city = ref('')
-const email = ref('')
-const phone = ref('')
-const emmergencyContact = ref('')
-
-const firstParent = ref('')
-const secondParent = ref('')
-
-const consent = ref(false)
-
-const known = ref('')
-const oldDojo = ref('')
-const epa = ref('')
-const ista = ref('')
-
-const medicalConcerns = ref('')
-const hospital = ref('')
-
-async function sendEmail() {
-	const body = {
-		adherent: {
-			name: name.value,
-			surname: surname.value,
-			birthDate: date.value,
-			sex: sexe.value
-		},
-		contact: {
-			address: address.value,
-			postalCode: postalCode.value,
-			city: city.value,
-			email: email.value,
-			phone: phone.value,
-			emmergencyContact: emmergencyContact.value
-		},
-		child: {
-			fisrtParent: firstParent.value,
-			secondParent: secondParent.value
-		},
-		consent: consent.value,
-		aikido: {
-			howKnown: known.value,
-			oldDojo: oldDojo.value,
-			epa: epa.value,
-			ista: ista.value
-		},
-		medicalData: {
-			concerns: medicalConcerns.value,
-			hospital: hospital.value
-		}
+const { r$ } = useRegle({
+	adherent: {
+		name: '',
+		surname: '',
+		birthDate: undefined,
+		sex: undefined
+	},
+	contact: {
+		address: '',
+		postalCode: '',
+		city: '',
+		email: '',
+		phone: '',
+		emmergencyContact: ''
+	},
+	child: {
+		firstParent: '',
+		secondParent: ''
+	},
+	consent: true,
+	aikido: {
+		howKnown: undefined,
+		oldDojo: '',
+		epa: '',
+	},
+	medicalData: {
+		concerns: '',
+		hospital: ''
 	}
+}, {
+	adherent: {
+		name: { required, minLength: minLength(1) },
+		surname: { required, minLength: minLength(1) },
+		birthDate: { required },
+		sex: { required, oneOf: oneOf(['Homme', 'Femme']) },
+	},
+	contact: {
+		address: { required, minLength: minLength(1) },
+		postalCode: { required, minLength: exactLength(5), numeric },
+		city: { required, minLength: minLength(1) },
+		email: { required, emailRule: withMessage(emailRule, "L'adresse email est invalide") },
+		phone: { required, regex: withMessage(regex(/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/), "Le téléphone est invalide") },
+		emmergencyContact: { required, regex: withMessage(regex(/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/), "Le téléphone est invalide") }
+	},
+	child: {
+		firstParent: { required, minLength: minLength(1) },
+		secondParent: { required, minLength: minLength(1) }
+	},
+	consent: { required, boolean },
+	aikido: {
+		howKnown: { oneOf: oneOf([""]) },
+		oldDojo: {},
+		epa: {},
+	},
+	medicalData: {
+		concerns: {},
+		hospital: {}
+	}
+})
 
-	const url = 'https://api.aikido-traditionnel-cotiere.com/api/subscribe'
-	//const url = 'http://localhost:7071/api/subscribe'
-	const response = await fetch(url, {
-		body: JSON.stringify(body),
-		method: 'POST',
-		mode: "cors"
-	})
+const ok = ref(false)
+const fail = ref(false)
+const submitting = ref(false)
+
+async function onSubmit() {
+	submitting.value = true
+	ok.value = false
+	fail.value = false
+	const { valid, data } = await r$.$validate()
+	if (valid) {
+		const url = 'https://api.aikido-traditionnel-cotiere.com/api/subscribe'
+		//const url = 'http://localhost:7071/api/subscribe'
+
+		try {
+			const response = await fetch(url, {
+				body: JSON.stringify(data),
+				method: 'POST',
+				mode: "cors"
+			})
+			if (response.ok) {
+				ok.value = true
+				r$.$reset()
+			}
+		} catch (err) {
+			console.error(err)
+			fail.value = true
+		}
+
+	}
+	submitting.value = false
 }
 
 </script>
 
 <template>
 	<the-bounded :data-slice-type="slice.slice_type" :data-slice-variation="slice.variation" class="relative">
-		<form class="flex flex-col gap-5" @submit.prevent="sendEmail">
+		<form class="flex flex-col gap-5" @submit.prevent="onSubmit">
 			<h2 class="mx-auto max-w-3xl text-balance text-2xl font-medium md:text-5xl">
 				<span>Information de l'adhérent</span>
 			</h2>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-				<input-field label="Nom" placeholder="Nom de famille de l'adhérent" v-model="name" required />
-				<input-field label="Prénom" placeholder="Prénom de l'adhérent" v-model="surname" required />
-				<input-field label="Date de naissance" placeholder="Date de naissance de l'adhérent" v-model="date"
-					type="date" icon="mdi-calendar" required />
-				<select-option-tab label="sexe" name="sexe" :options="['Homme', 'Femme']" v-model="sexe" required />
+				<input-field label="Nom" placeholder="Nom de famille de l'adhérent" :field="r$.adherent.name" />
+				<input-field label="Prénom" placeholder="Prénom de l'adhérent" :field="r$.adherent.surname" />
+				<input-field label="Date de naissance" placeholder="Date de naissance de l'adhérent"
+					:field="r$.adherent.birthDate" type="date" icon="mdi-calendar" />
+				<select-option-tab label="sexe" name="sexe" :options="['Homme', 'Femme']" :field="r$.adherent.sex" />
 			</div>
 
 			<h2 class="mx-auto max-w-3xl text-balance text-2xl font-medium md:text-5xl">
 				<span>Information de contact</span>
 			</h2>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-				<input-field label="Adresse" v-model="address" icon="mdi-map" required />
-				<input-field label="Code postal" v-model="postalCode" icon="mdi-map" required />
-				<input-field label="Ville" v-model="city" icon="mdi-map" required />
-				<input-field label="Courriel" v-model="email" type="email" icon="mdi-email" required />
-				<input-field label="Téléhone" v-model="phone" type="phone" icon="mdi-phone" required />
+				<input-field label="Adresse" :field="r$.contact.address" icon="mdi-map" />
+				<input-field label="Code postal" :field="r$.contact.postalCode" icon="mdi-map" />
+				<input-field label="Ville" :field="r$.contact.city" icon="mdi-map" />
+				<input-field label="Courriel" :field="r$.contact.email" icon="mdi-email" />
+				<input-field label="Téléhone" :field="r$.contact.phone" icon="mdi-phone" />
 				<input-field label="Téléphone (à contacter en cas d'urgence)" icon="mdi-phone-alert"
-					v-model="emmergencyContact" type="phone" required />
+					:field="r$.contact.emmergencyContact" type="phone" />
 			</div>
 
 			<h2 class="mx-auto max-w-3xl text-balance text-2xl font-medium md:text-5xl">
 				<span>Pratiquants mineurs</span>
 			</h2>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-				<input-field label="Nom et prénom du 1er parent" v-model="firstParent" icon="mdi-account-star"
-					required />
-				<input-field label="Nom et prénomdu 2è parent" v-model="secondParent" icon="mdi-account-star"
-					required />
+				<input-field label="Nom et prénom du 1er parent" :field="r$.child.firstParent"
+					icon="mdi-account-star" />
+				<input-field label="Nom et prénomdu 2è parent" :field="r$.child.secondParent" icon="mdi-account-star" />
 			</div>
 
 			<h2 class="mx-auto max-w-3xl text-balance text-2xl font-medium md:text-5xl">
@@ -119,17 +144,16 @@ async function sendEmail() {
 			<div class="grid grid-cols-1 gap-2">
 				<toogle-switch
 					label="En cochant cette case, vous autorisez le dojo à publier des photos où le pratiquant apparaît sur son site ou ses médias de communication (Facebook, articles de presse ...) *"
-					v-model="consent" />
+					:field="r$.consent" />
 			</div>
 
 			<h2 class="mx-auto max-w-3xl text-balance text-2xl font-medium md:text-5xl">
 				<span>Niveau de pratique</span>
 			</h2>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-				<input-field label="Comment avez-vous connu le dojo ?" v-model="known" />
-				<input-field label="Ancien dojo (si vous avez déjà pratiqué à l'EPA)" v-model="oldDojo" />
-				<input-field label="Numéro EPA" v-model="epa" />
-				<input-field label="Numéro ISTA" v-model="ista" />
+				<input-field label="Comment avez-vous connu le dojo ?" :field="r$.aikido.howKnown" />
+				<input-field label="Ancien dojo (si vous avez déjà pratiqué à l'EPA)" :field="r$.aikido.oldDojo" />
+				<input-field label="Numéro EPA" :field="r$.aikido.epa" />
 			</div>
 
 			<h2 class="mx-auto max-w-3xl text-balance text-2xl font-medium md:text-5xl">
@@ -138,20 +162,34 @@ async function sendEmail() {
 			<span>Vous pouvez renseigner cette partie si vous souhaitez communiquer des informations aux encadrants en
 				cas de problème</span>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-				<input-field label="Antécédents médicaux" v-model="medicalConcerns" />
-				<input-field label="Etablissement hospitalier à privilégier en cas d'urgence" v-model="hospital" />
+				<input-field label="Antécédents médicaux" :field="r$.medicalData.concerns" />
+				<input-field label="Etablissement hospitalier à privilégier en cas d'urgence"
+					:field="r$.medicalData.hospital" />
 			</div>
-
+			<span v-if="ok" class="text-2xl text-sky-300 animate-pulse  text-center">Votre demande d'inscription a
+				bien été prise
+				en compte
+				!</span>
+			<span v-if="!fail" class="text-2xl text-red-300 animate-pulse  text-center">Votre demande d'inscription a
+				échouée, veuillez réessayer. Si le problème persiste, merci de nous contacter par mail directement à
+				l'adresse <a class="text-sky-700 font-bold"
+					href="mailto:insciption-manuelle@aikido-traditionnel-cotiere.com">insciption-manuelle@aikido-traditionnel-cotiere.com</a>
+				en nous communiquant <a class="text-sky-700 font-bold" href="/Form_inscription.pdf" download>ce
+					formulaire</a>
+				rempli en pièce
+				jointe
+				!</span>
 			<button class="
-			button-variant 
+			button-variant
+			cursor-pointer
 			mx-auto
 			block md:inline-flex 
 			min-h-11 px-3 md:px-unset
 			text-3xl md:text-base 
 			first:mt-8 md:first:mt-0
 			md:items-center   
-			cursor-pointer" type="submit">M'inscrire !</button>
+			" type="submit" :disabled="submitting">M'inscrire !</button>
 
-		</form>
+		</Form>
 	</the-bounded>
 </template>

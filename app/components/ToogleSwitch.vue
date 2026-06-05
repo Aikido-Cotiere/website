@@ -1,19 +1,16 @@
 <script lang="ts" setup>
-const model = defineModel({
-  required: true,
-  type: Boolean
-})
 const props = withDefaults(defineProps<{
   label?: string,
+  field: RegleFieldStatus<any, any>,
 }>(), {
   label: '',
 });
 </script>
 
 <template>
-  <div class="grid auto-cols-auto grid-flow-col items-center justify-center gap-12">
+  <div v-if="field" class="grid auto-cols-auto grid-flow-col items-center justify-center gap-12">
     <label class="relative inline-flex items-center cursor-pointer text-gray-900 gap-3">
-      <input type="checkbox" class="sr-only peer" :value="model" />
+      <input type="checkbox" class="sr-only peer" :value="field.$value" v-model="field.$value" />
       <div class="w-12 h-7 bg-slate-500 rounded-full peer peer-checked:bg-sky-700 transition-colors duration-200">
       </div>
       <span

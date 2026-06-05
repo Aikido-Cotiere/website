@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   modules: [
     "@nuxtjs/prismic",
@@ -7,8 +7,13 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "@nuxt/icon",
     "@vueuse/nuxt",
-    "./app/modules/qrcode"
+    "@regle/nuxt",
+    "./app/modules/qrcode",
   ],
+
+  regle: {
+    setupFile: "~/regles/config.ts",
+  },
 
   css: ["@/assets/css/main.css"],
 
@@ -21,11 +26,11 @@ export default defineNuxtConfig({
   vite: {
     optimizeDeps: {
       include: [
-        '@vue/devtools-core',
-        '@vue/devtools-kit',
-        'gsap',
-        'gsap/dist/ScrollTrigger', // CJS
-      ]
-    }
-  }
-})
+        "@vue/devtools-core",
+        "@vue/devtools-kit",
+        "gsap",
+        "gsap/dist/ScrollTrigger", // CJS
+      ],
+    },
+  },
+});
