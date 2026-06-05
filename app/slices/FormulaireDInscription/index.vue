@@ -170,7 +170,7 @@ async function onSubmit() {
 				bien été prise
 				en compte
 				!</span>
-			<span v-if="!fail" class="text-2xl text-red-300 animate-pulse  text-center">Votre demande d'inscription a
+			<span v-if="fail" class="text-2xl text-red-300 animate-pulse  text-center">Votre demande d'inscription a
 				échouée, veuillez réessayer. Si le problème persiste, merci de nous contacter par mail directement à
 				l'adresse <a class="text-sky-700 font-bold"
 					href="mailto:insciption-manuelle@aikido-traditionnel-cotiere.com">insciption-manuelle@aikido-traditionnel-cotiere.com</a>
