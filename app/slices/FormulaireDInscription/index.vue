@@ -32,8 +32,46 @@ const ista = ref('')
 const medicalConcerns = ref('')
 const hospital = ref('')
 
-function sendEmail(){
-	alert('gogogog !')
+async function sendEmail() {
+	const body = {
+		adherent: {
+			name: name.value,
+			surname: surname.value,
+			birthDate: date.value,
+			sex: sexe.value
+		},
+		contact: {
+			address: address.value,
+			postalCode: postalCode.value,
+			city: city.value,
+			email: email.value,
+			phone: phone.value,
+			emmergencyContact: emmergencyContact.value
+		},
+		child: {
+			fisrtParent: firstParent.value,
+			secondParent: secondParent.value
+		},
+		consent: consent.value,
+		aikido: {
+			howKnown: known.value,
+			oldDojo: oldDojo.value,
+			epa: epa.value,
+			ista: ista.value
+		},
+		medicalData: {
+			concerns: medicalConcerns.value,
+			hospital: hospital.value
+		}
+	}
+
+	const url = 'https://api.aikido-traditionnel-cotiere.com/api/subscribe'
+	//const url = 'http://localhost:7071/api/subscribe'
+	const response = await fetch(url, {
+		body: JSON.stringify(body),
+		method: 'POST',
+		mode: "cors"
+	})
 }
 
 </script>
@@ -48,7 +86,7 @@ function sendEmail(){
 				<input-field label="Nom" placeholder="Nom de famille de l'adhérent" v-model="name" required />
 				<input-field label="Prénom" placeholder="Prénom de l'adhérent" v-model="surname" required />
 				<input-field label="Date de naissance" placeholder="Date de naissance de l'adhérent" v-model="date"
-					type="date" icon="mdi-calendar" required/>
+					type="date" icon="mdi-calendar" required />
 				<select-option-tab label="sexe" name="sexe" :options="['Homme', 'Femme']" v-model="sexe" required />
 			</div>
 
@@ -69,8 +107,10 @@ function sendEmail(){
 				<span>Pratiquants mineurs</span>
 			</h2>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-				<input-field label="Nom et prénom du 1er parent" v-model="firstParent" icon="mdi-account-star" required />
-				<input-field label="Nom et prénomdu 2è parent" v-model="secondParent" icon="mdi-account-star" required />
+				<input-field label="Nom et prénom du 1er parent" v-model="firstParent" icon="mdi-account-star"
+					required />
+				<input-field label="Nom et prénomdu 2è parent" v-model="secondParent" icon="mdi-account-star"
+					required />
 			</div>
 
 			<h2 class="mx-auto max-w-3xl text-balance text-2xl font-medium md:text-5xl">
@@ -110,8 +150,7 @@ function sendEmail(){
 			text-3xl md:text-base 
 			first:mt-8 md:first:mt-0
 			md:items-center   
-			cursor-pointer"
-			type="submit">M'inscrire !</button>
+			cursor-pointer" type="submit">M'inscrire !</button>
 
 		</form>
 	</the-bounded>

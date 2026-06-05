@@ -1,0 +1,32 @@
+{
+  "name": "aikido - website",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "forwardPorts": [
+    3000,
+    5555
+  ],
+  "otherPortsAttributes": {
+    "onAutoForward": "ignore"
+  },
+  "features": {
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "nuxtr.nuxtr-vscode",
+        "bradlc.vscode-tailwindcss",
+        "vue.volar",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "postCreateCommand": {
+      "npmInstall": "npm install"
+  },
+  "remoteUser": "root", 
+  "containerUser": "root",
+  "updateRemoteUserUID": false
+}
