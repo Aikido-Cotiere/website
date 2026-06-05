@@ -90,6 +90,8 @@ async function onSubmit() {
 			if (response.ok) {
 				ok.value = true
 				r$.$reset()
+			} else {
+				fail.value = true
 			}
 		} catch (err) {
 			console.error(err)
