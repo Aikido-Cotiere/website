@@ -1,75 +1,41 @@
-# Nuxt Minimal Starter
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
 
 Make sure to install dependencies:
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
 
+To develop on this project, many things are to be known:
+- This app will be running locally
+- The local app does not contains any content.
+- All Content are provided by Prismic
+
+So the process to develop is to:
+1. Login into prismic
+2. Start dev server
+3. Start watcher on prismic to sync changes
+
+### Login to prismic
+
+Run this command and log into prismic
+```bash
+npx prismic@latest login
+```
+
+### Start dev server
+
 Start the development server on `http://localhost:3000`:
-
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
+### Start prismic watcher
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+npx prismic@latest sync --watch
 ```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
