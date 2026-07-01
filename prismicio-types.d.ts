@@ -421,7 +421,7 @@ interface StandardDocumentData {
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type StandardDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<StandardDocumentData>, "standard", Lang>;
+export type StandardDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<StandardDocumentData>, "standard", Lang>;
 
 export type AllDocumentTypes = FocusesDocument | IndexDocument | NewsDocument | SettingsDocument | StandardDocument;
 

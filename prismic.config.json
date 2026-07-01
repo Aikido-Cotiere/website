@@ -13,12 +13,12 @@
       "path": "/"
     },
     {
-      "type": "standard",
-      "path": "/:uid"
-    },
-    {
       "type": "news",
       "path": "/news/:uid"
+    },
+    {
+      "type": "standard",
+      "path": "/:uid"
     }
   ]
 }

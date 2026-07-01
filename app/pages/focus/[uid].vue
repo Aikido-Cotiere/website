@@ -19,7 +19,7 @@ useSeoMeta({
 const { y } = useScroll(window)
 
 function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 watch(y, (newY) => {
@@ -37,9 +37,8 @@ watch(y, (newY) => {
 
 <template>
   <main ref="el">
-    <button type="button"
-      class="!fixed bottom-5 end-5 button-variant py-4 px-4 h-10 w-10 !hidden"
-      id="btn-back-to-top" @click="scrollToTop">
+    <button type="button" class="!fixed bottom-5 end-5 button-variant py-4 px-4 h-10 w-10 !hidden" id="btn-back-to-top"
+      @click="scrollToTop">
       <Icon name="ph:arrow-up-bold" class="w-10 h-10" />
     </button>
     <SliceZone :slices="page?.data.slices ?? []" :components="components" />

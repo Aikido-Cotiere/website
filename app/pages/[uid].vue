@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import { useScroll } from "@vueuse/core";
 import { components } from "~/slices";
 
 const prismic = usePrismic();
 const route = useRoute();
 const { data: page } = await useAsyncData(route.params.uid as string, () =>
-  prismic.client.getByUID("standard", route.params.uid as string)
+  prismic.client.getByUID("standard", route.params.uid as string),
 );
-
 
 useSeoMeta({
   title: page.value?.data.meta_title,
