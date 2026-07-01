@@ -2,7 +2,7 @@
 import { components } from "~/slices";
 
 const prismic = usePrismic();
-const { data: page } = await useAsyncData("inscriptions", () =>
+const { data: page } = await useAsyncData(route.params.uid as string, () =>
   prismic.client.getSingle("standard"),
 );
 
