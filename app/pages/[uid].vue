@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { useScroll } from "@vueuse/core";
 import { components } from "~/slices";
+import EmphasisText from "~/components/EmphasisText.vue";
+import TitleText from "~/components/TitleText.vue";
+import ParagraphText from "~/components/ParagraphText.vue";
+import LinkText from "~/components/LinkText.vue";
+
 
 const prismic = usePrismic();
 const route = useRoute();
@@ -41,6 +46,10 @@ watch(y, (newY) => {
       @click="scrollToTop">
       <Icon name="ph:arrow-up-bold" class="w-10 h-10" />
     </button>
+    <div v-if="page?.data.body">
+      <PrismicRichText :field="page.data.body"
+        :components="{ em: EmphasisText, paragraph: ParagraphText, heading2: TitleText, hyperlink: LinkText }" />
+    </div>
     <SliceZone :slices="page?.data.slices ?? []" :components="components" />
   </main>
 </template>
