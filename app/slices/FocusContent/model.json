@@ -1,141 +1,141 @@
 {
+  "description": "ContenuFocus",
   "id": "focus_content",
-  "type": "SharedSlice",
   "name": "FocusContent",
+  "type": "SharedSlice",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
       "description": "Default",
-      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/focus_content/default/7fc5449352441caece7366cfee58edef55b76089.png?auto=compress%2Cformat",
       "docURL": "...",
-      "version": "initial",
+      "id": "default",
+      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/focus_content/default/7fc5449352441caece7366cfee58edef55b76089.png?auto=compress%2Cformat",
+      "name": "Default",
       "primary": {
         "anchor": {
-          "type": "Text",
           "config": {
             "label": "Ancre",
             "placeholder": "Ancre pour la navigation via des #"
-          }
+          },
+          "type": "Text"
         },
         "title": {
-          "type": "StructuredText",
           "config": {
+            "allowTargetBlank": true,
             "label": "Titre",
             "placeholder": "",
-            "single": "heading1",
-            "allowTargetBlank": true
-          }
+            "single": "heading1"
+          },
+          "type": "StructuredText"
         },
         "sub_title": {
-          "type": "StructuredText",
           "config": {
+            "allowTargetBlank": true,
             "label": "Sous titre",
-            "placeholder": "Utiliser l'italic pour la mise en valeur (couleur)",
             "multi": "heading2,em",
-            "allowTargetBlank": true
-          }
+            "placeholder": "Utiliser l'italic pour la mise en valeur (couleur)"
+          },
+          "type": "StructuredText"
         },
         "content": {
-          "type": "StructuredText",
           "config": {
+            "allowTargetBlank": true,
             "label": "Contenu",
-            "placeholder": "",
             "multi": "paragraph,preformatted,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
-            "allowTargetBlank": true
-          }
+            "placeholder": ""
+          },
+          "type": "StructuredText"
         },
         "image": {
-          "type": "Image",
           "config": {
-            "label": "Image",
             "constraint": {},
+            "label": "Image",
             "thumbnails": []
-          }
+          },
+          "type": "Image"
         },
         "liens": {
-          "type": "Link",
           "config": {
-            "label": "Liens",
-            "placeholder": "",
-            "select": null,
             "allowTargetBlank": true,
             "allowText": true,
+            "label": "Liens",
+            "placeholder": "",
             "repeat": true,
+            "select": null,
             "variants": [
               "Lien",
               "Bouton"
             ]
-          }
+          },
+          "type": "Link"
         },
         "details": {
-          "type": "Group",
           "config": {
-            "label": "Details",
-            "repeat": true,
             "fields": {
               "content_title": {
-                "type": "StructuredText",
                 "config": {
+                  "allowTargetBlank": true,
                   "label": "Titre de contenu",
                   "placeholder": "Utiliser l'italic pour la mise en valeur (couleur)",
-                  "single": "heading3,em",
-                  "allowTargetBlank": true
-                }
+                  "single": "heading3,em"
+                },
+                "type": "StructuredText"
               },
               "content_punchline": {
-                "type": "StructuredText",
                 "config": {
+                  "allowTargetBlank": true,
                   "label": "Accroche de contenu",
                   "placeholder": "Utiliser l'italic pour la mise en valeur (couleur)",
-                  "single": "heading4,em",
-                  "allowTargetBlank": true
-                }
+                  "single": "heading4,em"
+                },
+                "type": "StructuredText"
               },
               "content_body": {
-                "type": "StructuredText",
                 "config": {
+                  "allowTargetBlank": true,
                   "label": "Corps du contenu",
-                  "placeholder": "",
                   "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
-                  "allowTargetBlank": true
-                }
+                  "placeholder": ""
+                },
+                "type": "StructuredText"
               },
               "content_image": {
-                "type": "Image",
                 "config": {
-                  "label": "Image de contenu",
                   "constraint": {},
+                  "label": "Image de contenu",
                   "thumbnails": []
-                }
+                },
+                "type": "Image"
               },
               "content_link": {
-                "type": "Link",
                 "config": {
-                  "label": "Lien",
-                  "placeholder": "",
-                  "select": null,
                   "allowTargetBlank": true,
                   "allowText": true,
+                  "label": "Lien",
+                  "placeholder": "",
                   "repeat": true,
+                  "select": null,
                   "variants": [
                     "Lien",
                     "Bouton"
                   ]
-                }
+                },
+                "type": "Link"
               }
-            }
-          }
+            },
+            "label": "Details",
+            "repeat": true
+          },
+          "type": "Group"
         },
         "iframe": {
-          "type": "Text",
           "config": {
             "label": "Iframe",
             "placeholder": ""
-          }
+          },
+          "type": "Text"
         }
-      }
+      },
+      "version": "initial"
     }
-  ],
-  "description": "ContenuFocus"
+  ]
 }

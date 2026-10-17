@@ -1,0 +1,41 @@
+{
+  "description": "FormSection",
+  "id": "form_section",
+  "name": "EntêteDeSectionDeFormulaire",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "...",
+      "id": "default",
+      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/form_section/default/4af7327c45d4a7fd9fcf2f01de39e635d8903677.png?auto=compress%2Cformat",
+      "name": "Default",
+      "primary": {
+        "title": {
+          "config": {
+            "allowTargetBlank": false,
+            "label": "Title",
+            "placeholder": "Italic pour du texte qui ressort",
+            "single": "heading2,em"
+          },
+          "type": "StructuredText"
+        },
+        "depends_on": {
+          "config": {
+            "label": "Dépend de",
+            "placeholder": "Identifiant technique du champ déclencheur"
+          },
+          "type": "Text"
+        },
+        "dependency_code": {
+          "config": {
+            "label": "Code de dépendance",
+            "placeholder": "Javascript de déclenchement ({depId} pour le champ cible)"
+          },
+          "type": "Text"
+        }
+      },
+      "version": "initial"
+    }
+  ]
+}

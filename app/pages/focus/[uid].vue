@@ -4,7 +4,7 @@ import { components } from "~/slices";
 
 const prismic = usePrismic();
 const route = useRoute();
-const { data: page } = await useAsyncData(route.params.uid as string, () =>
+const { data: page } = await useAsyncData("focuses_" + (route.params.uid as string), () =>
   prismic.client.getByUID("focuses", route.params.uid as string),
 );
 

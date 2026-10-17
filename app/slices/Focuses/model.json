@@ -1,64 +1,64 @@
 {
+  "description": "Focus sur quelque chose",
   "id": "focuses",
-  "type": "SharedSlice",
   "name": "Focuses",
+  "type": "SharedSlice",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
       "description": "Default",
-      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/focuses/default/459c1e0a919465d1215dd203faae8c8267797db2.png?auto=compress%2Cformat",
       "docURL": "...",
-      "version": "initial",
+      "id": "default",
+      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/focuses/default/459c1e0a919465d1215dd203faae8c8267797db2.png?auto=compress%2Cformat",
+      "items": {},
+      "name": "Default",
       "primary": {
         "title": {
-          "type": "StructuredText",
           "config": {
+            "allowTargetBlank": true,
             "label": "Titre",
             "placeholder": "",
-            "single": "heading2",
-            "allowTargetBlank": true
-          }
+            "single": "heading2"
+          },
+          "type": "StructuredText"
         },
         "body": {
-          "type": "StructuredText",
           "config": {
+            "allowTargetBlank": true,
             "label": "Corps",
-            "placeholder": "",
             "multi": "paragraph,em,strong",
-            "allowTargetBlank": true
-          }
+            "placeholder": ""
+          },
+          "type": "StructuredText"
         },
         "focuses": {
-          "type": "Group",
           "config": {
-            "label": "Focus sur",
-            "repeat": true,
             "fields": {
               "link": {
-                "type": "Link",
                 "config": {
-                  "label": "Link",
-                  "select": "document",
                   "customtypes": [
                     {
-                      "id": "focuses",
                       "fields": [
                         "title",
                         "description",
                         "cover"
-                      ]
+                      ],
+                      "id": "focuses"
                     }
                   ],
-                  "repeat": false
-                }
+                  "label": "Link",
+                  "repeat": false,
+                  "select": "document"
+                },
+                "type": "Link"
               }
-            }
-          }
+            },
+            "label": "Focus sur",
+            "repeat": true
+          },
+          "type": "Group"
         }
       },
-      "items": {}
+      "version": "initial"
     }
-  ],
-  "description": "Focus sur quelque chose"
+  ]
 }

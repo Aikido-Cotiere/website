@@ -1,59 +1,59 @@
 {
+  "description": "Contact",
   "id": "contact",
-  "type": "SharedSlice",
   "name": "Contact",
+  "type": "SharedSlice",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
       "description": "Default",
-      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/contact/default/e08bbd12fc9c5268d750566fcfde3f7de0d645ae.png?auto=compress%2Cformat",
       "docURL": "...",
-      "version": "initial",
+      "id": "default",
+      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/contact/default/e08bbd12fc9c5268d750566fcfde3f7de0d645ae.png?auto=compress%2Cformat",
+      "name": "Default",
       "primary": {
         "anchor": {
-          "type": "Text",
           "config": {
             "label": "Ancre",
             "placeholder": ""
-          }
+          },
+          "type": "Text"
         },
         "title": {
-          "type": "StructuredText",
           "config": {
+            "allowTargetBlank": true,
             "label": "Titre",
-            "placeholder": "Utiliser l'italic pour la mise en valeur (couleur)",
             "multi": "heading2,em",
-            "allowTargetBlank": true
-          }
+            "placeholder": "Utiliser l'italic pour la mise en valeur (couleur)"
+          },
+          "type": "StructuredText"
         },
         "address": {
-          "type": "StructuredText",
           "config": {
+            "allowTargetBlank": true,
             "label": "Adresse",
-            "placeholder": "",
             "multi": "paragraph",
-            "allowTargetBlank": true
-          }
+            "placeholder": ""
+          },
+          "type": "StructuredText"
         },
         "email": {
-          "type": "StructuredText",
           "config": {
+            "allowTargetBlank": true,
             "label": "Email",
             "placeholder": "",
-            "single": "paragraph",
-            "allowTargetBlank": true
-          }
+            "single": "paragraph"
+          },
+          "type": "StructuredText"
         },
         "iframe_google_maps": {
-          "type": "Text",
           "config": {
             "label": "Iframe google maps",
             "placeholder": ""
-          }
+          },
+          "type": "Text"
         }
-      }
+      },
+      "version": "initial"
     }
-  ],
-  "description": "Contact"
+  ]
 }

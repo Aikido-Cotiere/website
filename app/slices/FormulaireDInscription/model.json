@@ -1,16 +1,16 @@
 {
+  "description": "FormulaireDInscription",
   "id": "subscription_form",
-  "type": "SharedSlice",
   "name": "FormulaireDInscription",
+  "type": "SharedSlice",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
       "description": "Default",
-      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/subscription_form/default/83bf7db952d46d9503428b7a68e2e310bd9ddd25.png?auto=compress%2Cformat",
       "docURL": "...",
+      "id": "default",
+      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/subscription_form/default/83bf7db952d46d9503428b7a68e2e310bd9ddd25.png?auto=compress%2Cformat",
+      "name": "Default",
       "version": "initial"
     }
-  ],
-  "description": "FormulaireDInscription"
+  ]
 }

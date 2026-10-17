@@ -1,0 +1,109 @@
+{
+  "format": "page",
+  "id": "formulaires",
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Titre",
+          "placeholder": "",
+          "single": "paragraph,heading1,heading2,strong,em"
+        },
+        "type": "StructuredText"
+      },
+      "image": {
+        "config": {
+          "constraint": {},
+          "label": "Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "body": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Contenu",
+          "multi": "paragraph,heading2,strong,em,hyperlink,image,embed",
+          "placeholder": ""
+        },
+        "type": "StructuredText"
+      },
+      "cta": {
+        "config": {
+          "allowTargetBlank": true,
+          "allowText": true,
+          "label": "CTA",
+          "placeholder": "",
+          "repeat": false,
+          "select": null,
+          "variants": [
+            "Lien",
+            "Bouton"
+          ]
+        },
+        "type": "Link"
+      },
+      "submit_url": {
+        "config": {
+          "label": "URL de soumission",
+          "placeholder": "https://..."
+        },
+        "type": "Text"
+      },
+      "slices": {
+        "config": {
+          "choices": {
+            "focus_content": {
+              "type": "SharedSlice"
+            },
+            "form_content": {
+              "type": "SharedSlice"
+            },
+            "form_section": {
+              "type": "SharedSlice"
+            }
+          }
+        },
+        "fieldset": "Slice Zone",
+        "type": "Slices"
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      }
+    }
+  },
+  "label": "Formulaires",
+  "repeatable": true,
+  "status": true
+}

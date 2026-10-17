@@ -1,0 +1,123 @@
+{
+  "description": "FormContent",
+  "id": "form_content",
+  "name": "ChampsDeFormulaire",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "...",
+      "id": "default",
+      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/form_content/default/81fe71ef9031fc8e4a81936ce91d345913f8c517.png?auto=compress%2Cformat",
+      "name": "Default",
+      "primary": {
+        "technical_id": {
+          "config": {
+            "label": "Id technique",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "label": {
+          "config": {
+            "label": "Libellé",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "placeholder": {
+          "config": {
+            "label": "Texte explicatif",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "type": {
+          "config": {
+            "default_value": "texte",
+            "label": "Type",
+            "options": [
+              "texte",
+              "date",
+              "telephone",
+              "email",
+              "oui_non",
+              "choix"
+            ],
+            "placeholder": ""
+          },
+          "type": "Select"
+        },
+        "depends_on": {
+          "config": {
+            "label": "Dépend de",
+            "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "dependency_code": {
+          "config": {
+            "label": "Code de dépendance",
+            "placeholder": "Javascript de déclenchement ({depId} pour le champ cible, ex: `{depId}.value == \"toto\"`)"
+          },
+          "type": "Text"
+        },
+        "optional_trigger": {
+          "config": {
+            "default_value": false,
+            "label": "Est un déclencheur optionnel",
+            "placeholder_false": "false",
+            "placeholder_true": "true"
+          },
+          "type": "Boolean"
+        },
+        "is_required": {
+          "config": {
+            "default_value": false,
+            "label": "Est obligatoire ?",
+            "placeholder_false": "false",
+            "placeholder_true": "true"
+          },
+          "type": "Boolean"
+        },
+        "option_list": {
+          "config": {
+            "fields": {
+              "option_value": {
+                "config": {
+                  "label": "valeur de l'option",
+                  "placeholder": ""
+                },
+                "type": "Text"
+              },
+              "option_text": {
+                "config": {
+                  "label": "texte de l'option",
+                  "placeholder": ""
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Liste d'options",
+            "repeat": true
+          },
+          "type": "Group"
+        },
+        "size": {
+          "config": {
+            "default_value": "Moyen",
+            "label": "Taille",
+            "options": [
+              "Moyen",
+              "Petit",
+              "Grand"
+            ],
+            "placeholder": ""
+          },
+          "type": "Select"
+        }
+      },
+      "version": "initial"
+    }
+  ]
+}

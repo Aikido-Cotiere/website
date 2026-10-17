@@ -9,6 +9,10 @@
       "path": "/focus/:uid"
     },
     {
+      "type": "formulaires",
+      "path": "/formulaires/:uid"
+    },
+    {
       "type": "index",
       "path": "/"
     },

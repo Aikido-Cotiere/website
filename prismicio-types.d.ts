@@ -139,6 +139,119 @@ interface FocusesDocumentData {
  */
 export type FocusesDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<FocusesDocumentData>, "focuses", Lang>;
 
+type FormulairesDocumentDataSlicesSlice = FocusContentSlice | FormContentSlice | FormSectionSlice
+
+/**
+ * Content for Formulaires documents
+ */
+interface FormulairesDocumentData {
+	/**
+	 * Titre field in *Formulaires*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: formulaires.title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	title: prismic.RichTextField;
+	
+	/**
+	 * Image field in *Formulaires*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: formulaires.image
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	image: prismic.ImageField<never>;
+	
+	/**
+	 * Contenu field in *Formulaires*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: formulaires.body
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	body: prismic.RichTextField;
+	
+	/**
+	 * CTA field in *Formulaires*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: formulaires.cta
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	cta: prismic.LinkField<string, string, unknown, prismic.FieldState, "Lien" | "Bouton">;
+	/**
+	 * URL de soumission field in *Formulaires*
+	 *
+	 * - **Field Type**: Text
+	 * - **API ID Path**: formulaires.submit_url
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	submit_url: prismic.KeyTextField;
+	
+	/**
+	 * Slice Zone field in *Formulaires*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: formulaires.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/slices
+	 */
+	slices: prismic.SliceZone<FormulairesDocumentDataSlicesSlice>;/**
+	 * Meta Title field in *Formulaires*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A title of the page used for social media and search engines
+	 * - **API ID Path**: formulaires.meta_title
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	meta_title: prismic.KeyTextField;
+	
+	/**
+	 * Meta Description field in *Formulaires*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A brief summary of the page
+	 * - **API ID Path**: formulaires.meta_description
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	meta_description: prismic.KeyTextField;
+	
+	/**
+	 * Meta Image field in *Formulaires*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: formulaires.meta_image
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Formulaires document from Prismic
+ *
+ * - **API ID**: `formulaires`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FormulairesDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<FormulairesDocumentData>, "formulaires", Lang>;
+
 type IndexDocumentDataSlicesSlice = ShowcaseSlice | FocusesSlice | HeroSlice | BentoSlice | ContactSlice
 
 /**
@@ -423,7 +536,7 @@ interface StandardDocumentData {
  */
 export type StandardDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<StandardDocumentData>, "standard", Lang>;
 
-export type AllDocumentTypes = FocusesDocument | IndexDocument | NewsDocument | SettingsDocument | StandardDocument;
+export type AllDocumentTypes = FocusesDocument | FormulairesDocument | IndexDocument | NewsDocument | SettingsDocument | StandardDocument;
 
 /**
  * Item in *Bento → Default → Primary → Bento*
@@ -782,7 +895,7 @@ export interface FocusesSliceDefaultPrimaryFocusesItem {
 	 * - **API ID Path**: focuses.default.primary.focuses[].link
 	 * - **Documentation**: https://prismic.io/docs/fields/content-relationship
 	 */
-	link: ContentRelationshipFieldWithData<[{"id":"focuses","fields":["title","description","cover"]}]>;
+	link: ContentRelationshipFieldWithData<[{"fields":["title","description","cover"],"id":"focuses"}]>;
 }
 
 /**
@@ -842,6 +955,201 @@ type FocusesSliceVariation = FocusesSliceDefault
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type FocusesSlice = prismic.SharedSlice<"focuses", FocusesSliceVariation>;
+
+/**
+ * Item in *ChampsDeFormulaire → Default → Primary → Liste d'options*
+ */
+export interface FormContentSliceDefaultPrimaryOptionListItem {
+	/**
+	 * valeur de l'option field in *ChampsDeFormulaire → Default → Primary → Liste d'options*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: form_content.default.primary.option_list[].option_value
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	option_value: prismic.KeyTextField;
+	
+	/**
+	 * texte de l'option field in *ChampsDeFormulaire → Default → Primary → Liste d'options*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: form_content.default.primary.option_list[].option_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	option_text: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ChampsDeFormulaire → Default → Primary*
+ */
+export interface FormContentSliceDefaultPrimary {
+	/**
+	 * Id technique field in *ChampsDeFormulaire → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: form_content.default.primary.technical_id
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	technical_id: prismic.KeyTextField;
+	
+	/**
+	 * Libellé field in *ChampsDeFormulaire → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: form_content.default.primary.label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	label: prismic.KeyTextField;
+	
+	/**
+	 * Texte explicatif field in *ChampsDeFormulaire → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: form_content.default.primary.placeholder
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	placeholder: prismic.KeyTextField;
+	
+	/**
+	 * Type field in *ChampsDeFormulaire → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: texte
+	 * - **API ID Path**: form_content.default.primary.type
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	type: prismic.SelectField<"texte" | "date" | "telephone" | "email" | "oui_non" | "choix", "filled">;
+	
+	/**
+	 * Dépend de field in *ChampsDeFormulaire → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: form_content.default.primary.depends_on
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	depends_on: prismic.KeyTextField;
+	
+	/**
+	 * Code de dépendance field in *ChampsDeFormulaire → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Javascript de déclenchement ({depId} pour le champ cible, ex: `{depId}.value == "toto"`)
+	 * - **API ID Path**: form_content.default.primary.dependency_code
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	dependency_code: prismic.KeyTextField;
+	
+	/**
+	 * Est un déclencheur optionnel field in *ChampsDeFormulaire → Default → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: form_content.default.primary.optional_trigger
+	 * - **Documentation**: https://prismic.io/docs/fields/boolean
+	 */
+	optional_trigger: prismic.BooleanField;
+	
+	/**
+	 * Est obligatoire ? field in *ChampsDeFormulaire → Default → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: form_content.default.primary.is_required
+	 * - **Documentation**: https://prismic.io/docs/fields/boolean
+	 */
+	is_required: prismic.BooleanField;
+	
+	/**
+	 * Liste d'options field in *ChampsDeFormulaire → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: form_content.default.primary.option_list[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	option_list: prismic.GroupField<Simplify<FormContentSliceDefaultPrimaryOptionListItem>>;
+	
+	/**
+	 * Taille field in *ChampsDeFormulaire → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Moyen
+	 * - **API ID Path**: form_content.default.primary.size
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	size: prismic.SelectField<"Moyen" | "Petit" | "Grand", "filled">;
+}
+
+/**
+ * Default variation for ChampsDeFormulaire Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FormContentSliceDefault = prismic.SharedSliceVariation<"default", Simplify<FormContentSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *ChampsDeFormulaire*
+ */
+type FormContentSliceVariation = FormContentSliceDefault
+
+/**
+ * ChampsDeFormulaire Shared Slice
+ *
+ * - **API ID**: `form_content`
+ * - **Description**: FormContent
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FormContentSlice = prismic.SharedSlice<"form_content", FormContentSliceVariation>;
+
+/**
+ * Primary content in *EntêteDeSectionDeFormulaire → Default → Primary*
+ */
+export interface FormSectionSliceDefaultPrimary {
+	/**
+	 * Title field in *EntêteDeSectionDeFormulaire → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Italic pour du texte qui ressort
+	 * - **API ID Path**: form_section.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	title: prismic.RichTextField;
+}
+
+/**
+ * Default variation for EntêteDeSectionDeFormulaire Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FormSectionSliceDefault = prismic.SharedSliceVariation<"default", Simplify<FormSectionSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *EntêteDeSectionDeFormulaire*
+ */
+type FormSectionSliceVariation = FormSectionSliceDefault
+
+/**
+ * EntêteDeSectionDeFormulaire Shared Slice
+ *
+ * - **API ID**: `form_section`
+ * - **Description**: FormSection
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FormSectionSlice = prismic.SharedSlice<"form_section", FormSectionSliceVariation>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -1116,6 +1424,9 @@ declare module "@prismicio/client" {
 			FocusesDocument,
 			FocusesDocumentData,
 			FocusesDocumentDataSlicesSlice,
+			FormulairesDocument,
+			FormulairesDocumentData,
+			FormulairesDocumentDataSlicesSlice,
 			IndexDocument,
 			IndexDocumentData,
 			IndexDocumentDataSlicesSlice,
@@ -1147,6 +1458,15 @@ declare module "@prismicio/client" {
 			FocusesSliceDefaultPrimary,
 			FocusesSliceVariation,
 			FocusesSliceDefault,
+			FormContentSlice,
+			FormContentSliceDefaultPrimaryOptionListItem,
+			FormContentSliceDefaultPrimary,
+			FormContentSliceVariation,
+			FormContentSliceDefault,
+			FormSectionSlice,
+			FormSectionSliceDefaultPrimary,
+			FormSectionSliceVariation,
+			FormSectionSliceDefault,
 			HeroSlice,
 			HeroSliceDefaultPrimary,
 			HeroSliceVariation,

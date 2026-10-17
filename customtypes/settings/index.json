@@ -1,48 +1,48 @@
 {
+  "format": "custom",
   "id": "settings",
-  "label": "Menu principal",
-  "repeatable": false,
   "json": {
     "Main": {
       "site_title": {
-        "type": "Text",
         "config": {
           "label": "Titre du site",
           "placeholder": ""
-        }
+        },
+        "type": "Text"
       },
       "site_description": {
-        "type": "Text",
         "config": {
           "label": "Description du site",
           "placeholder": ""
-        }
+        },
+        "type": "Text"
       },
       "site_image": {
-        "type": "Image",
         "config": {
-          "label": "Image du site",
           "constraint": {},
+          "label": "Image du site",
           "thumbnails": []
-        }
+        },
+        "type": "Image"
       },
       "navigation": {
-        "type": "Link",
         "config": {
-          "label": "Navigation",
-          "placeholder": "",
-          "select": null,
           "allowTargetBlank": true,
           "allowText": true,
+          "label": "Navigation",
+          "placeholder": "",
           "repeat": true,
+          "select": null,
           "variants": [
             "Lien",
             "Bouton"
           ]
-        }
+        },
+        "type": "Link"
       }
     }
   },
-  "status": true,
-  "format": "custom"
+  "label": "Menu principal",
+  "repeatable": false,
+  "status": true
 }

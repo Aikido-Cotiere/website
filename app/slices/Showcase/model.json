@@ -1,147 +1,147 @@
 {
+  "description": "Showcase",
   "id": "showcase",
-  "type": "SharedSlice",
   "name": "Showcase",
+  "type": "SharedSlice",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
       "description": "Default",
-      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/showcase/default/1bf86dc8adc1d3df3cbc3cec371ab40973d57d61.png?auto=compress%2Cformat",
       "docURL": "...",
-      "version": "initial",
+      "id": "default",
+      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/showcase/default/1bf86dc8adc1d3df3cbc3cec371ab40973d57d61.png?auto=compress%2Cformat",
+      "items": {},
+      "name": "Default",
       "primary": {
         "title": {
-          "type": "StructuredText",
           "config": {
+            "allowTargetBlank": true,
             "label": "Titre",
             "placeholder": "",
-            "single": "heading2",
-            "allowTargetBlank": true
-          }
+            "single": "heading2"
+          },
+          "type": "StructuredText"
         },
         "image": {
-          "type": "Image",
           "config": {
-            "label": "Image",
             "constraint": {},
+            "label": "Image",
             "thumbnails": []
-          }
+          },
+          "type": "Image"
         },
         "icon": {
-          "type": "Select",
           "config": {
-            "label": "Icone",
-            "placeholder": "",
             "default_value": "ph:gear",
+            "label": "Icone",
             "options": [
               "ph:gear",
               "ph:arrows-clockwise",
               "noto:martial-arts-uniform"
-            ]
-          }
+            ],
+            "placeholder": ""
+          },
+          "type": "Select"
         },
         "punchline": {
-          "type": "StructuredText",
           "config": {
+            "allowTargetBlank": true,
             "label": "Sous-titre",
             "placeholder": "",
-            "single": "heading3",
-            "allowTargetBlank": true
-          }
+            "single": "heading3"
+          },
+          "type": "StructuredText"
         },
         "body": {
-          "type": "StructuredText",
           "config": {
+            "allowTargetBlank": true,
             "label": "Corps",
-            "placeholder": "",
             "multi": "paragraph,strong,em",
-            "allowTargetBlank": true
-          }
+            "placeholder": ""
+          },
+          "type": "StructuredText"
         },
         "cta": {
-          "type": "Link",
           "config": {
-            "label": "CTA",
-            "placeholder": "",
-            "select": null,
             "allowTargetBlank": true,
             "allowText": true,
-            "repeat": false
-          }
+            "label": "CTA",
+            "placeholder": "",
+            "repeat": false,
+            "select": null
+          },
+          "type": "Link"
         }
       },
-      "items": {}
+      "version": "initial"
     },
     {
-      "id": "reversed",
-      "name": "Reversed Layout",
       "description": "Default",
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format",
       "docURL": "...",
-      "version": "initial",
+      "id": "reversed",
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format",
+      "items": {},
+      "name": "Reversed Layout",
       "primary": {
         "title": {
-          "type": "StructuredText",
           "config": {
+            "allowTargetBlank": true,
             "label": "Titre",
             "placeholder": "",
-            "single": "heading2",
-            "allowTargetBlank": true
-          }
+            "single": "heading2"
+          },
+          "type": "StructuredText"
         },
         "image": {
-          "type": "Image",
           "config": {
-            "label": "Image",
             "constraint": {},
+            "label": "Image",
             "thumbnails": []
-          }
+          },
+          "type": "Image"
         },
         "icon": {
-          "type": "Select",
           "config": {
-            "label": "Icone",
-            "placeholder": "",
             "default_value": "gear",
+            "label": "Icone",
             "options": [
               "gear",
               "cycle"
-            ]
-          }
+            ],
+            "placeholder": ""
+          },
+          "type": "Select"
         },
         "punchline": {
-          "type": "StructuredText",
           "config": {
+            "allowTargetBlank": true,
             "label": "Sous-titre",
             "placeholder": "",
-            "single": "heading3",
-            "allowTargetBlank": true
-          }
+            "single": "heading3"
+          },
+          "type": "StructuredText"
         },
         "body": {
-          "type": "StructuredText",
           "config": {
+            "allowTargetBlank": true,
             "label": "Corps",
-            "placeholder": "",
             "multi": "paragraph,strong,em",
-            "allowTargetBlank": true
-          }
+            "placeholder": ""
+          },
+          "type": "StructuredText"
         },
         "cta": {
-          "type": "Link",
           "config": {
-            "label": "CTA",
-            "placeholder": "",
-            "select": null,
             "allowTargetBlank": true,
             "allowText": true,
-            "repeat": false
-          }
+            "label": "CTA",
+            "placeholder": "",
+            "repeat": false,
+            "select": null
+          },
+          "type": "Link"
         }
       },
-      "items": {}
+      "version": "initial"
     }
-  ],
-  "description": "Showcase"
+  ]
 }

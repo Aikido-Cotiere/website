@@ -1,55 +1,55 @@
 {
+  "description": "Hero",
   "id": "hero",
-  "type": "SharedSlice",
   "name": "Hero",
+  "type": "SharedSlice",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
       "description": "Default",
-      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/hero/default/8d496bee8161a7f626b65b8c33e72b80fd02bd16.png?auto=compress%2Cformat",
       "docURL": "...",
-      "version": "initial",
+      "id": "default",
+      "imageUrl": "https://images.prismic.io/aikido-traditionnel-cotiere/shared-slices/hero/default/8d496bee8161a7f626b65b8c33e72b80fd02bd16.png?auto=compress%2Cformat",
+      "name": "Default",
       "primary": {
         "title": {
-          "type": "StructuredText",
           "config": {
+            "allowTargetBlank": false,
             "label": "Titre",
             "placeholder": "",
-            "single": "heading1",
-            "allowTargetBlank": false
-          }
+            "single": "heading1"
+          },
+          "type": "StructuredText"
         },
         "punchline": {
-          "type": "StructuredText",
           "config": {
+            "allowTargetBlank": true,
             "label": "Accroche",
-            "placeholder": "",
             "multi": "paragraph,strong,em",
-            "allowTargetBlank": true
-          }
+            "placeholder": ""
+          },
+          "type": "StructuredText"
         },
         "ctas": {
-          "type": "Link",
           "config": {
-            "label": "CTAs",
-            "placeholder": "",
-            "select": null,
             "allowTargetBlank": true,
             "allowText": true,
-            "repeat": true
-          }
+            "label": "CTAs",
+            "placeholder": "",
+            "repeat": true,
+            "select": null
+          },
+          "type": "Link"
         },
         "image": {
-          "type": "Image",
           "config": {
-            "label": "Image",
             "constraint": {},
+            "label": "Image",
             "thumbnails": []
-          }
+          },
+          "type": "Image"
         }
-      }
+      },
+      "version": "initial"
     }
-  ],
-  "description": "Hero"
+  ]
 }
