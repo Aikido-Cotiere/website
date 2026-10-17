@@ -54,10 +54,9 @@ onBeforeUnmount(() => {
     document.removeEventListener('change', updateVisibility, true);
 });
 
-const sanitizedInputType = computed<"text" | "date" | "email" | "phone" | "password" | undefined>(() => {
+const sanitizedInputType = computed<"text" | "email" | "phone" | "password" | undefined>(() => {
     const type = props.slice.primary.type;
     if (type === 'texte') return 'text';
-    if (type === 'date') return 'date';
     if (type === 'email') return 'email';
     if (type === 'telephone') return 'phone';
     return undefined;
@@ -77,9 +76,18 @@ const sizeClass = computed(() => ({
 </script>
 
 <template>
-    <!-- Champs textuels et dates -->
+    <FormDateField
+        v-if="isVisible && slice.primary.type === 'date'"
+        :placeholder="slice.primary.placeholder ?? undefined"
+        :label="slice.primary.label ?? undefined"
+        :name="slice.primary.technical_id ?? undefined"
+        :is-required="slice.primary.is_required ?? false"
+        :class="sizeClass"
+    />
+
+    <!-- Champs textuels -->
     <FormTextField
-        v-if="isVisible && sanitizedInputType"
+        v-else-if="isVisible && sanitizedInputType"
         :placeholder="slice.primary.placeholder ?? undefined"
         :label="slice.primary.label ?? undefined"
         :name="slice.primary.technical_id ?? undefined"
