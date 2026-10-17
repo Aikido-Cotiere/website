@@ -102,13 +102,12 @@ async function onSubmit() {
 
   isSubmitting.value = true;
   try {
-    console.log("Submitting payload:", payload);
-    // const response = await fetch(submitUrl, {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(payload),
-    // });
-    // if (!response.ok) throw new Error(`Submission failed: ${response.status}`);
+    const response = await fetch(submitUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!response.ok) throw new Error(`Submission failed: ${response.status}`);
     submitted.value = true;
   } catch (error) {
     console.error(error);
