@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, nextTick, ref, watch } from 'vue';
 import { VueDatePicker } from '@vuepic/vue-datepicker';
 import { fr as frFR } from 'date-fns/locale';
 import '@vuepic/vue-datepicker/dist/main.css';
@@ -17,6 +17,7 @@ const props = withDefaults(defineProps<{
 
 const model = ref<string | null>(null);
 const errors = ref<string[]>([]);
+const submissionInput = ref<HTMLInputElement | null>(null);
 const hasError = computed(() => errors.value.length > 0);
 const serializedDate = computed(() => model.value ?? '');
 const datepickerTheme = {
@@ -44,6 +45,13 @@ function validate() {
 		? ['Ce champ est obligatoire.']
 		: [];
 }
+
+watch(model, async () => {
+	validate();
+	await nextTick();
+	submissionInput.value?.dispatchEvent(new Event('input', { bubbles: true }));
+	submissionInput.value?.dispatchEvent(new Event('change', { bubbles: true }));
+});
 </script>
 
 <template>
@@ -65,9 +73,9 @@ function validate() {
 				:enable-time-picker="false"
 				:auto-apply="true"
 				:clearable="true"
-				@update:model-value="validate"
 			/>
 			<input
+				ref="submissionInput"
 				type="hidden"
 				:name="name"
 				:value="serializedDate"
