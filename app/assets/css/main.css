@@ -22,5 +22,5 @@ body {
 
 .glassy-container:before {
     content: "";
-    @apply absolute -inset-[10px] -z-10 rounded-xl border border-gray-100/20 bg-gray-200/10 backdrop:blur-md;
+    @apply absolute -inset-[10px] -z-10 rounded-xl border border-gray-100/20 bg-gray-200/10 backdrop-blur-md;
 }
