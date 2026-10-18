@@ -69,9 +69,9 @@ const isSelectType = computed<'choix' | 'oui_non' | undefined>(() => {
 });
 
 const sizeClass = computed(() => ({
-    'col-span-1': props.slice.primary.size === 'Petit',
-    'col-span-2': props.slice.primary.size === 'Moyen',
-    'col-span-4': props.slice.primary.size === 'Grand',
+    'col-span-full md:col-span-1': props.slice.primary.size === 'Petit',
+    'col-span-full md:col-span-2': props.slice.primary.size === 'Moyen',
+    'col-span-full': props.slice.primary.size === 'Grand',
 }));
 </script>
 
