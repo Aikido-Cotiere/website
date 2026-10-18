@@ -36,34 +36,25 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         node: [26]
+        pnpm: [12]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Identify package manager
-        id: pkgman
-        run: |
-          cache=`[ -f "./pnpm-lock.yaml" ] && echo "pnpm" || ([ -f "./package-lock.json" ] && echo "npm" || ([ -f "./yarn.lock" ] && echo "yarn" || echo ""))`
-          package_manager=`[ ! -z "$cache" ] && echo "$cache" || echo "npm"`
-          echo "cache=$cache" >> $GITHUB_OUTPUT
-          echo "package_manager=$package_manager" >> $GITHUB_OUTPUT
-
-      - uses: pnpm/action-setup@v4
-        if: ${{ steps.pkgman.outputs.package_manager == 'pnpm' }}
+        
+      - uses: pnpm/setup@v1
+        with:
+         version: 12
+         runtime: node@26
+         cache: true
         name: Install pnpm
         id: pnpm-install
 
-      - uses: actions/setup-node@v4
-        with:
-          version: ${{ matrix.node }}
-          cache: ${{ steps.pkgman.outputs.cache }}
-
-      - name: Install dependencies
-        run: ${{ steps.pkgman.outputs.package_manager }} install
+      - name: Install  
+        run: pnpm install
 
       - name: Generate
-        run: ${{ steps.pkgman.outputs.package_manager }} run build
+        run: pnpm build
         env:
           NITRO_PRESET: github_pages
           NUXT_CONTENT_PREVIEW_API: https://api.nuxt.studio
