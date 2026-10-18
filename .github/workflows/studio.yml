@@ -44,8 +44,8 @@ jobs:
         
       - uses: pnpm/setup@v1
         with:
-         version: 12
-         runtime: node@26
+         version: ${{ matrix.pnpm }}
+         runtime: node@${{ matrix.node }}
          cache: true
         name: Install pnpm
         id: pnpm-install
