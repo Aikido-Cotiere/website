@@ -29,7 +29,7 @@ const isOpen = ref(false);
         <button @click="isOpen = false" class="block p-2 text-3xl" :aria-expanded="!isOpen">
           <Icon name="ph:x-bold" />
         </button>
-        <the-main-menu :links="settings?.data.navigation" class="grid justify-items-end gap-6" />
+        <the-main-menu :links="settings?.data.navigation" class="grid justify-items-end gap-6" @click="isOpen = false" />
       </div>
 
       <!-- Desktop menu -->
