@@ -7,6 +7,7 @@ import '@vuepic/vue-datepicker/dist/main.css';
 const props = withDefaults(defineProps<{
 	label?: string;
 	name?: string;
+	icon?: string;
 	placeholder?: string;
 	isRequired?: boolean;
 }>(), {
@@ -35,10 +36,10 @@ const datepickerTheme = {
 	'--dp-icon-color': '#9ca3af',
 	'--dp-font-family': 'DM Sans, sans-serif',
 };
-const datepickerUi = {
-	input: 'rounded-lg border border-slate-700 bg-gray-950 px-3 py-3 text-gray-50 placeholder:text-gray-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/40',
+const datepickerUi = computed(() => ({
+	input: `rounded-lg border border-slate-700 bg-gray-950 ${props.icon ? 'pl-10 pr-3' : 'px-3'} py-3 text-gray-50 placeholder:text-gray-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/40`,
 	menu: 'rounded-lg border border-slate-700 shadow-xl',
-};
+}));
 
 function validate() {
 	errors.value = props.isRequired && !model.value
@@ -61,6 +62,8 @@ watch(model, async () => {
 		</p>
 
 		<div :aria-invalid="hasError" :class="hasError ? 'rounded-lg ring-1 ring-red-700' : ''">
+			<div class="relative">
+				<Icon v-if="icon" :name="icon" class="pointer-events-none absolute left-3 top-1/2 z-10 -translate-y-1/2 text-gray-400" />
 			<VueDatePicker
 				v-model="model"
 				:model-type="'yyyy-MM-dd'"
@@ -74,6 +77,7 @@ watch(model, async () => {
 				:auto-apply="true"
 				:clearable="true"
 			/>
+			</div>
 			<input
 				ref="submissionInput"
 				type="hidden"

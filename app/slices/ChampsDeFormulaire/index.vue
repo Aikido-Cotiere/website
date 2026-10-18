@@ -81,6 +81,7 @@ const sizeClass = computed(() => ({
         :placeholder="slice.primary.placeholder ?? undefined"
         :label="slice.primary.label ?? undefined"
         :name="slice.primary.technical_id ?? undefined"
+        :icon="slice.primary.icon ?? undefined"
         :is-required="slice.primary.is_required ?? false"
         :class="sizeClass"
     />
@@ -91,6 +92,7 @@ const sizeClass = computed(() => ({
         :placeholder="slice.primary.placeholder ?? undefined"
         :label="slice.primary.label ?? undefined"
         :name="slice.primary.technical_id ?? undefined"
+        :icon="slice.primary.icon ?? undefined"
         :is-required="slice.primary.is_required ?? false"
         :type="sanitizedInputType"
         :class="sizeClass"
@@ -104,6 +106,7 @@ const sizeClass = computed(() => ({
         :options="slice.primary.option_list"
         :type="isSelectType"
         :size="slice.primary.size"
+        :icon="slice.primary.icon ?? undefined"
         :is-required="slice.primary.is_required ?? false"
         :class="sizeClass"
     />

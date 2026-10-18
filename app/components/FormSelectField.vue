@@ -7,6 +7,7 @@ export interface OptionItem {
 
 const props = withDefaults(defineProps<{
   name: string,
+  icon?: string,
   label?: string,
   options?: Array<OptionItem | string>,
   valueField?: string,
@@ -88,6 +89,7 @@ const validate = () => {
       role="radiogroup"
       :aria-invalid="hasError"
     >
+      <Icon v-if="icon" :name="icon" class="mx-2 shrink-0" />
       <div v-for="(option, index) in safeOptions" :key="option.value" class="flex items-center">
         <input
           :id="`${baseId}-${index}`"

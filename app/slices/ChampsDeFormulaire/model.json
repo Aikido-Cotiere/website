@@ -25,6 +25,13 @@
           },
           "type": "Text"
         },
+        "icon": {
+          "config": {
+            "label": "Icône",
+            "placeholder": "Nom de l'icône Nuxt Icon, ex: mdi:account"
+          },
+          "type": "Text"
+        },
         "placeholder": {
           "config": {
             "label": "Texte explicatif",

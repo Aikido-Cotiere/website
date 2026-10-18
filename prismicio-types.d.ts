@@ -1004,6 +1004,14 @@ export interface FormContentSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	label: prismic.KeyTextField;
+	/**
+	 * Icône field in *ChampsDeFormulaire → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **API ID Path**: form_content.default.primary.icon
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	icon: prismic.KeyTextField;
 	
 	/**
 	 * Texte explicatif field in *ChampsDeFormulaire → Default → Primary*
