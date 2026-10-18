@@ -84,7 +84,7 @@ const validate = () => {
     </p>
 
     <div
-      class="inline-flex flex-wrap items-center gap-1 p-1 border rounded-full transition-colors"
+      class="inline-flex flex-wrap items-center gap-1 p-1 border rounded-lg transition-colors"
       :class="hasError ? 'border-red-700 text-red-700' : 'border-slate-700 text-slate-300'"
       role="radiogroup"
       :aria-invalid="hasError"
@@ -106,7 +106,7 @@ const validate = () => {
           :for="`${baseId}-${index}`"
           :class="[
             sizeClasses,
-            'cursor-pointer select-none rounded-full font-medium transition-all duration-200',
+            'cursor-pointer select-none rounded-md font-medium transition-all duration-200',
             'text-slate-400 hover:text-white',
             'peer-checked:bg-sky-600 peer-checked:text-white peer-checked:shadow-sm',
             'peer-focus-visible:ring-2 peer-focus-visible:ring-sky-500'
