@@ -134,7 +134,7 @@ async function onSubmit() {
       <p v-if="submitted" class="col-span-full text-center" role="status">Votre formulaire a bien été envoyé.</p>
       <p v-if="submitError" class="col-span-full text-center text-red-700" role="alert">{{ submitError }}</p>
       <button type="submit" class="button-variant col-span-full" :disabled="isSubmitting">
-        {{ isSubmitting ? "Envoi..." : "Envoyer" }}
+        {{ isSubmitting ? "Envoi en cours..." : "Envoyer le formulaire" }}
       </button>
     </form>
   </main>
