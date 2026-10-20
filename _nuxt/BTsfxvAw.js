@@ -1,0 +1,1 @@
+import{Ut as e,x as t,yt as n}from"./uCltCm1C.js";import{t as r}from"./aaXn3jc-.js";import"./CLSUJOqc.js";var i=t({name:`PrismicText`,__name:`PrismicText`,props:{field:{type:null,required:!0},fallback:{type:String,required:!1},separator:{type:String,required:!1}},setup(t){return(i,a)=>e(n(r)(t.field)||t.fallback||``)}});export{i as t};
