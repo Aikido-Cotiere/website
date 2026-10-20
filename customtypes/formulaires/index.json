@@ -52,8 +52,8 @@
       },
       "submit_url": {
         "config": {
-          "label": "URL de soumission",
-          "placeholder": "https://..."
+          "label": "Url d'envoi du formulaire",
+          "placeholder": ""
         },
         "type": "Text"
       },

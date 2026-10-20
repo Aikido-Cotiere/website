@@ -57,6 +57,7 @@ const validate = () => {
         class="w-full p-3 bg-transparent outline-none"
         :type="type"
         :name="name"
+        :data-field-label="label"
         :required="isRequired"
         :aria-invalid="hasError"
         @change="validate"

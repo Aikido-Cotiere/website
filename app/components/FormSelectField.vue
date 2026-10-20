@@ -96,6 +96,7 @@ const validate = () => {
           v-model="model"
           type="radio"
           :name="name"
+          :data-field-label="label"
           :value="option.value"
           :required="isRequired"
           class="hidden peer"

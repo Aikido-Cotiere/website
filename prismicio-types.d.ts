@@ -188,10 +188,12 @@ interface FormulairesDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/fields/link
 	 */
 	cta: prismic.LinkField<string, string, unknown, prismic.FieldState, "Lien" | "Bouton">;
+	
 	/**
-	 * URL de soumission field in *Formulaires*
+	 * Url d'envoi du formulaire field in *Formulaires*
 	 *
 	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
 	 * - **API ID Path**: formulaires.submit_url
 	 * - **Tab**: Main
 	 * - **Documentation**: https://prismic.io/docs/fields/text
@@ -1004,14 +1006,6 @@ export interface FormContentSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	label: prismic.KeyTextField;
-	/**
-	 * Icône field in *ChampsDeFormulaire → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **API ID Path**: form_content.default.primary.icon
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	icon: prismic.KeyTextField;
 	
 	/**
 	 * Texte explicatif field in *ChampsDeFormulaire → Default → Primary*
@@ -1022,6 +1016,16 @@ export interface FormContentSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	placeholder: prismic.KeyTextField;
+	
+	/**
+	 * icon field in *ChampsDeFormulaire → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: https://icon-sets.iconify.design/  (utiliser le format iconify)
+	 * - **API ID Path**: form_content.default.primary.icon
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	icon: prismic.KeyTextField;
 	
 	/**
 	 * Type field in *ChampsDeFormulaire → Default → Primary*
@@ -1134,6 +1138,26 @@ export interface FormSectionSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
 	 */
 	title: prismic.RichTextField;
+	
+	/**
+	 * Dépend de field in *EntêteDeSectionDeFormulaire → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: form_section.default.primary.depends_on
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	depends_on: prismic.KeyTextField;
+	
+	/**
+	 * Code de dépendance field in *EntêteDeSectionDeFormulaire → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Javascript de déclenchement ({depId} pour le champ cible, ex: `{depId}.value == "toto"`)
+	 * - **API ID Path**: form_section.default.primary.dependancy_code
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	dependancy_code: prismic.KeyTextField;
 }
 
 /**

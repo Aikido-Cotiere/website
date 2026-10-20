@@ -25,17 +25,17 @@
           },
           "type": "Text"
         },
-        "icon": {
-          "config": {
-            "label": "Icône",
-            "placeholder": "Nom de l'icône Nuxt Icon, ex: mdi:account"
-          },
-          "type": "Text"
-        },
         "placeholder": {
           "config": {
             "label": "Texte explicatif",
             "placeholder": ""
+          },
+          "type": "Text"
+        },
+        "icon": {
+          "config": {
+            "label": "icon",
+            "placeholder": "https://icon-sets.iconify.design/  (utiliser le format iconify)"
           },
           "type": "Text"
         },

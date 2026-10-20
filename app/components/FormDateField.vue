@@ -82,6 +82,7 @@ watch(model, async () => {
 				ref="submissionInput"
 				type="hidden"
 				:name="name"
+				:data-field-label="label"
 				:value="serializedDate"
 				@form-validate="validate"
 			/>

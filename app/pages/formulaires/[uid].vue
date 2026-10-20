@@ -43,7 +43,7 @@ watch(y, (newY) => {
   }
 });
 
-function setNestedValue(target: Record<string, unknown>, path: string[], value: string) {
+function setNestedValue(target: Record<string, unknown>, path: string[], value: unknown) {
   const [key, ...remainingPath] = path;
   if (!key || ["__proto__", "prototype", "constructor"].includes(key)) return;
 
@@ -97,7 +97,10 @@ async function onSubmit() {
 
     const path = input.name.split(".");
     if (path.some((segment) => !segment)) continue;
-    setNestedValue(payload, path, value);
+    setNestedValue(payload, path, {
+      label: input.dataset.fieldLabel ?? "",
+      value,
+    });
   }
 
   isSubmitting.value = true;

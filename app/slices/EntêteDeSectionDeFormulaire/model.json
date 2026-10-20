@@ -23,14 +23,14 @@
         "depends_on": {
           "config": {
             "label": "Dépend de",
-            "placeholder": "Identifiant technique du champ déclencheur"
+            "placeholder": ""
           },
           "type": "Text"
         },
-        "dependency_code": {
+        "dependancy_code": {
           "config": {
             "label": "Code de dépendance",
-            "placeholder": "Javascript de déclenchement ({depId} pour le champ cible)"
+            "placeholder": "Javascript de déclenchement ({depId} pour le champ cible, ex: `{depId}.value == \"toto\"`)"
           },
           "type": "Text"
         }
