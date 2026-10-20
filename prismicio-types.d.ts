@@ -201,6 +201,17 @@ interface FormulairesDocumentData {
 	submit_url: prismic.KeyTextField;
 	
 	/**
+	 * Champ de retour email des utilisateurs field in *Formulaires*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Saisir l'id technique ici
+	 * - **API ID Path**: formulaires.feedback_user_email
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	feedback_user_email: prismic.KeyTextField;
+	
+	/**
 	 * Slice Zone field in *Formulaires*
 	 *
 	 * - **Field Type**: Slice Zone

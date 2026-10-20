@@ -57,6 +57,13 @@
         },
         "type": "Text"
       },
+      "feedback_user_email": {
+        "config": {
+          "label": "Champ de retour email des utilisateurs",
+          "placeholder": "Saisir l'id technique ici"
+        },
+        "type": "Text"
+      },
       "slices": {
         "config": {
           "choices": {

@@ -24,6 +24,7 @@ useSeoMeta({
 
 const { y } = useScroll(window)
 const formElement = ref<HTMLFormElement | null>(null);
+const formFieldsKey = ref(0);
 const isSubmitting = ref(false);
 const submitError = ref("");
 const submitted = ref(false);
@@ -77,15 +78,25 @@ async function onSubmit() {
     return;
   }
 
-  const submitUrl = page.value?.data.submit_url?.trim();
+  const submitUrl = import.meta.dev
+    ? "http://localhost:7071/api/subscribe"
+    : page.value?.data.submit_url?.trim();
   if (!submitUrl) {
     submitError.value = "L'URL de soumission n'est pas configurée.";
     return;
   }
 
-  const payload = Object.create(null) as Record<string, unknown>;
+  const feedbackEmailPath = page.value?.data.feedback_user_email?.trim();
+  const feedbackEmailSegments = feedbackEmailPath?.split(".");
+  if (!feedbackEmailPath || feedbackEmailSegments?.some((segment) => !segment)) {
+    submitError.value = "Le champ email à transmettre n'est pas configuré.";
+    return;
+  }
+
+  const formPayload = Object.create(null) as Record<string, unknown>;
   const processedRadioNames = new Set<string>();
   const inputs = Array.from(form.querySelectorAll<HTMLInputElement>("input[name]"));
+  let feedbackEmail: string | undefined;
 
   for (const input of inputs) {
     let value = input.value;
@@ -97,11 +108,26 @@ async function onSubmit() {
 
     const path = input.name.split(".");
     if (path.some((segment) => !segment)) continue;
-    setNestedValue(payload, path, {
+    if (input.name === feedbackEmailPath) {
+      feedbackEmail = value;
+      continue;
+    }
+
+    setNestedValue(formPayload, path, {
       label: input.dataset.fieldLabel ?? "",
       value,
     });
   }
+
+  if (feedbackEmail === undefined) {
+    submitError.value = "Le champ email configuré est introuvable dans le formulaire.";
+    return;
+  }
+
+  const payload = {
+    metadata: { email: feedbackEmail },
+    form: formPayload,
+  };
 
   isSubmitting.value = true;
   try {
@@ -112,6 +138,7 @@ async function onSubmit() {
     });
     if (!response.ok) throw new Error(`Submission failed: ${response.status}`);
     submitted.value = true;
+    formFieldsKey.value++;
   } catch (error) {
     console.error(error);
     submitError.value = "L'envoi a échoué, veuillez réessayer.";
@@ -133,8 +160,10 @@ async function onSubmit() {
         :components="{ em: EmphasisText, paragraph: ParagraphText, heading2: TitleText, hyperlink: LinkText }" />
     </div>
     <form ref="formElement" novalidate class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mx-auto" @submit.prevent="onSubmit">
-      <SliceZone :slices="page?.data.slices ?? []" :components="components" />
-      <p v-if="submitted" class="col-span-full text-center" role="status">Votre formulaire a bien été envoyé.</p>
+      <SliceZone :key="formFieldsKey" :slices="page?.data.slices ?? []" :components="components" />
+      <p v-if="submitted" class="col-span-full text-center text-2xl font-bold text-sky-300 animate-pulse motion-reduce:animate-none" role="status">
+        Votre formulaire a bien été envoyé, vérifiez vos emails.
+      </p>
       <p v-if="submitError" class="col-span-full text-center text-red-700" role="alert">{{ submitError }}</p>
       <button type="submit" class="button-variant col-span-full" :disabled="isSubmitting">
         {{ isSubmitting ? "Envoi en cours..." : "Envoyer le formulaire" }}
