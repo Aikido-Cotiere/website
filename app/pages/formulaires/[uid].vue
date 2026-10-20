@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { nextTick, ref } from "vue";
 import { useScroll } from "@vueuse/core";
+import { asText } from "@prismicio/client";
 import { components } from "~/slices";
 import EmphasisText from "~/components/EmphasisText.vue";
 import TitleText from "~/components/TitleText.vue";
@@ -96,6 +97,7 @@ async function onSubmit() {
   const formPayload = Object.create(null) as Record<string, unknown>;
   const processedRadioNames = new Set<string>();
   const inputs = Array.from(form.querySelectorAll<HTMLInputElement>("input[name]"));
+  const fieldsByName = new Map<string, { label: string; value: string }>();
   let feedbackEmail: string | undefined;
 
   for (const input of inputs) {
@@ -108,14 +110,19 @@ async function onSubmit() {
 
     const path = input.name.split(".");
     if (path.some((segment) => !segment)) continue;
+    const field = {
+      label: input.dataset.fieldLabel ?? "",
+      value,
+    };
     if (input.name === feedbackEmailPath) {
       feedbackEmail = value;
+      fieldsByName.set(input.name, field);
       continue;
     }
 
+    fieldsByName.set(input.name, field);
     setNestedValue(formPayload, path, {
-      label: input.dataset.fieldLabel ?? "",
-      value,
+      ...field,
     });
   }
 
@@ -124,8 +131,40 @@ async function onSubmit() {
     return;
   }
 
+  const sections: { title: string; fields: string[] }[] = [];
+  let currentSection: { title: string; fields: string[] } | undefined;
+
+  for (const slice of page.value?.data.slices ?? []) {
+    if (slice.slice_type === "form_section") {
+      currentSection = {
+        title: asText(slice.primary.title),
+        fields: [],
+      };
+      sections.push(currentSection);
+      continue;
+    }
+
+    if (slice.slice_type !== "form_content") continue;
+
+    const fieldName = slice.primary.technical_id?.trim();
+    if (!fieldName) continue;
+
+    const field = fieldsByName.get(fieldName);
+    if (!field) continue;
+
+    if (!currentSection) {
+      currentSection = {
+        title: "",
+        fields: [],
+      };
+      sections.push(currentSection);
+    }
+
+    currentSection.fields.push(fieldName);
+  }
+
   const payload = {
-    metadata: { email: feedbackEmail },
+    metadata: { email: feedbackEmail, sections },
     form: formPayload,
   };
 
