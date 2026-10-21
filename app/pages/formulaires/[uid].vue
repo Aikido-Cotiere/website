@@ -116,8 +116,6 @@ async function onSubmit() {
     };
     if (input.name === feedbackEmailPath) {
       feedbackEmail = value;
-      fieldsByName.set(input.name, field);
-      continue;
     }
 
     fieldsByName.set(input.name, field);
